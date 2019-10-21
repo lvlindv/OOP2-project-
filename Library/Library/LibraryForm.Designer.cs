@@ -38,10 +38,11 @@
             this.lbBooks.Name = "lbBooks";
             this.lbBooks.Size = new System.Drawing.Size(437, 498);
             this.lbBooks.TabIndex = 0;
+            this.lbBooks.SelectedIndexChanged += new System.EventHandler(this.lbBooks_SelectedIndexChanged);
             // 
             // btnShowAllBooks
             // 
-            this.btnShowAllBooks.Location = new System.Drawing.Point(25, 538);
+            this.btnShowAllBooks.Location = new System.Drawing.Point(12, 538);
             this.btnShowAllBooks.Name = "btnShowAllBooks";
             this.btnShowAllBooks.Size = new System.Drawing.Size(124, 34);
             this.btnShowAllBooks.TabIndex = 1;
@@ -52,7 +53,7 @@
             // checkBoxOnlyAvailable
             // 
             this.checkBoxOnlyAvailable.AutoSize = true;
-            this.checkBoxOnlyAvailable.Location = new System.Drawing.Point(25, 578);
+            this.checkBoxOnlyAvailable.Location = new System.Drawing.Point(12, 578);
             this.checkBoxOnlyAvailable.Name = "checkBoxOnlyAvailable";
             this.checkBoxOnlyAvailable.Size = new System.Drawing.Size(124, 17);
             this.checkBoxOnlyAvailable.TabIndex = 2;
@@ -70,7 +71,7 @@
             // comboBoxAuthors
             // 
             this.comboBoxAuthors.FormattingEnabled = true;
-            this.comboBoxAuthors.Location = new System.Drawing.Point(328, 545);
+            this.comboBoxAuthors.Location = new System.Drawing.Point(328, 546);
             this.comboBoxAuthors.Name = "comboBoxAuthors";
             this.comboBoxAuthors.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAuthors.TabIndex = 4;
@@ -78,7 +79,7 @@
             // 
             // BtnAddNewMember
             // 
-            this.BtnAddNewMember.Location = new System.Drawing.Point(522, 667);
+            this.BtnAddNewMember.Location = new System.Drawing.Point(545, 683);
             this.BtnAddNewMember.Name = "BtnAddNewMember";
             this.BtnAddNewMember.Size = new System.Drawing.Size(124, 43);
             this.BtnAddNewMember.TabIndex = 5;
