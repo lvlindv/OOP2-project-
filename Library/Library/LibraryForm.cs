@@ -43,15 +43,24 @@ namespace Library
             }
         }
 
-        private void BTNChangeBook_Click(object sender, EventArgs e)
+        private void LibraryForm_Load(object sender, EventArgs e)
         {
-            Book b = lbBooks.SelectedItem as Book;
-            if (b != null)
-            {
-                b.Title = "Yoyoma koko";
-                bookService.Edit(b);
-            }
+
         }
-        
+
+        private void btnShowAllBooks_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxOnlyAvailable_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxAuthors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
