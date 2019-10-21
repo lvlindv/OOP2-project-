@@ -13,12 +13,15 @@ namespace Library.Models {
         /// <summary>
         /// Properties
         /// </summary>
-        public int BookId { get; set; } //Primärnyckel, hur läggs den till?
+        
+        //Primary key
+        public int BookId { get; set; } 
         public string ISBN { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public Author Author { get; set; }
-        public IEnumerable<BookCopy> BookCopies { get; set; }
+        public virtual Author Author { get; set; }
+        // A book can have many copies, zero-to-many
+        public virtual ICollection<BookCopy> BookCopies { get; set; }
 
         public Book(string ISBN, string Title, string Description, Author Author)
         {
