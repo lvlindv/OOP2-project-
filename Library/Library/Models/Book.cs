@@ -15,11 +15,17 @@ namespace Library.Models {
         public string Title { get; set; }
         public string Description { get; set; }
         public Author Author { get; set; }
-        public IEnumerable<BookCopy> BookCopy { get; set; }
+        public IEnumerable<BookCopy> BookCopies { get; set; }
 
-        public Book(string ISBN, string Title, string Description)
+        public Book(string ISBN, string Title, string Description, Author Author)
         {
-            //Tilldela properties värden
+            this.ISBN = ISBN;
+            this.Title = Title;
+            this.Description = Description;
+            this.Author = Author;
+
+            List<BookCopy> copyList = new List<BookCopy>();
+            this.BookCopies = copyList;
         }
 
         /// <summary>
