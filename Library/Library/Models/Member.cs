@@ -18,7 +18,7 @@ namespace Library.Models
         public int PersonalId { get; set; }
         public string Name { get; set; }
         public DateTime DateOfMembership { get; set; }
-        public IEnumerable<Loan> Loans { get; set; }
+        public virtual ICollection<Loan> Loans { get; set; }
 
         /// <summary>
         /// Constructor

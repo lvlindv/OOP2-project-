@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Library.Models
         /// </summary>
         public int AuthorId { get; set; } //Primary key
         public string Name { get; set; }
-        public IEnumerable<Book> Books { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
 
         /// <summary>
         /// Constructor
