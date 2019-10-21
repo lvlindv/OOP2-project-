@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Library.Models
 {
+    /// <summary>
+    /// Domain object "Author"
+    /// </summary>
     public class Author
     {
         /// <summary>
