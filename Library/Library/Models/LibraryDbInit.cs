@@ -14,12 +14,12 @@ namespace Library.Models {
         protected override void Seed(LibraryContext context) {
             base.Seed(context);
 
-            Book monteCristo = new Book() {
-                Title = "The Count of Monte Cristo"
-            };
+            //Book monteCristo = new Book() {
+            //    Title = "The Count of Monte Cristo"
+            //};
 
             // Add the book to the DbSet of books.
-            context.Books.Add(monteCristo);
+            //context.Books.Add(monteCristo);
 
             // Persist changes to the database
             context.SaveChanges();
