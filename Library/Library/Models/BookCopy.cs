@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Library.Models
         /// <summary>
         /// Properties
         /// </summary>
+        [Key]
         public int CopyId { get; set; } //Primary key, when do we add?
         public Book Book { get; set; }
         public int Condition { get; set; } //Can only be 1-10, implement rule
