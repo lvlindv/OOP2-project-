@@ -31,15 +31,25 @@ namespace Library
             this.bookService = new BookService(repFactory);
 
             ShowAllBooks(bookService.All());
+
+            // Add Authors in comboBoxAuthors
+            comboBoxAuthors.Items.Add("Louise Wiljander");
+            comboBoxAuthors.Items.Add("Linda Petersson");
+
         }
+
+        // Created a new list of books
+        public List<Book> bookList = new List<Book>();
 
         private void ShowAllBooks(IEnumerable<Book> books)
         {
-            lbBooks.Items.Clear();
-            foreach (Book book in books)
-            {
-                lbBooks.Items.Add(book);
-            }
+            // Code from project starting code. Moved this code to btnShowAllBooks
+
+            //lbBooks.Items.Clear();
+            //foreach (Book book in books)
+            //{
+            //    lbBooks.Items.Add(book);
+            //}
         }
 
         private void LibraryForm_Load(object sender, EventArgs e)
@@ -49,7 +59,12 @@ namespace Library
 
         private void btnShowAllBooks_Click(object sender, EventArgs e)
         {
-
+            // Adds all books from bookList into the ldBooks(listbox)
+            lbBooks.Items.Clear();
+            foreach (Book book in bookList)
+            {
+                lbBooks.Items.Add(book.ToString());
+            }
         }
 
         private void checkBoxOnlyAvailable_CheckedChanged(object sender, EventArgs e)
@@ -67,5 +82,12 @@ namespace Library
             AddMemberForm AddMemberForm = new AddMemberForm();
             AddMemberForm.Show();
         }
+
+        private void lbBooks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
