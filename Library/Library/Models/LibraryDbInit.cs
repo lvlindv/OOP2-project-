@@ -14,15 +14,19 @@ namespace Library.Models {
         protected override void Seed(LibraryContext context) {
             base.Seed(context);
 
-            //Book monteCristo = new Book() {
-            //    Title = "The Count of Monte Cristo"
-            //};
+            LibraryContext db = new LibraryContext();
+
+            //Create author object
+            Author alexDumas = new Author("Alexandre Dumas");
+
+            //Create book object
+            Book monteChristo = new Book("123", "The Count of Monte Christo", "A book about a count", alexDumas);
 
             // Add the book to the DbSet of books.
-            //context.Books.Add(monteCristo);
+            db.Books.Add(monteChristo);
 
             // Persist changes to the database
-            context.SaveChanges();
+            db.SaveChanges();
         }
     }
 }
