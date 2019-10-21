@@ -85,6 +85,9 @@
     <Compile Include="Repositories\RepositoryFactory.cs" />
     <Compile Include="Services\BookService.cs" />
     <Compile Include="Services\IService.cs" />
+    <EmbeddedResource Include="AddMemberForm.resx">
+      <DependentUpon>AddMemberForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LibraryForm.resx">
       <DependentUpon>LibraryForm.cs</DependentUpon>
     </EmbeddedResource>

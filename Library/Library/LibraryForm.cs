@@ -32,7 +32,6 @@ namespace Library
 
             ShowAllBooks(bookService.All());
         }
-        
 
         private void ShowAllBooks(IEnumerable<Book> books)
         {
@@ -61,6 +60,12 @@ namespace Library
         private void comboBoxAuthors_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnAddNewMember_Click(object sender, EventArgs e)
+        {
+            AddMemberForm AddMemberForm = new AddMemberForm();
+            AddMemberForm.Show();
         }
     }
 }
