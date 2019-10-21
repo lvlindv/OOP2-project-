@@ -20,9 +20,15 @@ namespace Library.Models
         /// <summary>
         /// Constructor
         /// </summary>
-        public Member()
+        public Member(int personalId, string name, DateTime dateofMembership)
         {
             //Set values of properties
+            this.PersonalId = personalId;
+            this.Name = name;
+            this.DateOfMembership = dateofMembership;
+
+            List<Loan> loanList = new List<Loan>();
+            this.Loans = loanList;
         }
     }
 }
