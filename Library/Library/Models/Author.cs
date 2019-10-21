@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,11 @@ namespace Library.Models
         /// <summary>
         /// Properties
         /// </summary>
+        [Key]
         public int AuthorId { get; set; } //Primary key
+        [Required]
         public string Name { get; set; }
-        public IEnumerable<Book> Books { get; set; }
+        public ICollection<Book> Books { get; set; }
 
         /// <summary>
         /// Constructor
