@@ -18,9 +18,13 @@ namespace Library.Models
         /// <summary>
         /// Constructor
         /// </summary>
-        public Author()
+        public Author(string name)
         {
             //Set values of properties
+            this.Name = name;
+            List<Book> bookList = new List<Book>();
+            this.Books = bookList;
+
         }
     }
 }
