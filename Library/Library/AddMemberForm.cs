@@ -16,5 +16,33 @@ namespace Library
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Adding new members
+        /// </summary>
+        private void btnAddNewMember_Click(object sender, EventArgs e)
+        {
+            if (textBoxName.Text == "" || textBoxPersonalId.Text == "")
+            {
+                MessageBox.Show("", "You need to write something!");
+            }
+            else
+            {
+                // Lägg till i listan 
+                // 
+
+                MessageBox.Show("You have now added the new member: " + textBoxName.Text);
+            }
+        }
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPersonalId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

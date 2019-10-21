@@ -28,6 +28,7 @@
             this.checkBoxOnlyAvailable = new System.Windows.Forms.CheckBox();
             this.textBoxAuthor = new System.Windows.Forms.TextBox();
             this.comboBoxAuthors = new System.Windows.Forms.ComboBox();
+            this.BtnAddNewMember = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbBooks
@@ -75,11 +76,22 @@
             this.comboBoxAuthors.TabIndex = 4;
             this.comboBoxAuthors.SelectedIndexChanged += new System.EventHandler(this.comboBoxAuthors_SelectedIndexChanged);
             // 
+            // BtnAddNewMember
+            // 
+            this.BtnAddNewMember.Location = new System.Drawing.Point(522, 667);
+            this.BtnAddNewMember.Name = "BtnAddNewMember";
+            this.BtnAddNewMember.Size = new System.Drawing.Size(124, 43);
+            this.BtnAddNewMember.TabIndex = 5;
+            this.BtnAddNewMember.Text = "Add new member";
+            this.BtnAddNewMember.UseVisualStyleBackColor = true;
+            this.BtnAddNewMember.Click += new System.EventHandler(this.BtnAddNewMember_Click);
+            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 766);
+            this.Controls.Add(this.BtnAddNewMember);
             this.Controls.Add(this.comboBoxAuthors);
             this.Controls.Add(this.textBoxAuthor);
             this.Controls.Add(this.checkBoxOnlyAvailable);
@@ -100,6 +112,7 @@
         private System.Windows.Forms.CheckBox checkBoxOnlyAvailable;
         private System.Windows.Forms.TextBox textBoxAuthor;
         private System.Windows.Forms.ComboBox comboBoxAuthors;
+        private System.Windows.Forms.Button BtnAddNewMember;
     }
 }
 
