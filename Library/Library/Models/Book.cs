@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 
 namespace Library.Models {
+    /// <summary>
+    /// Domain object "Book"
+    /// </summary>
     public class Book {
         
         /// <summary>
