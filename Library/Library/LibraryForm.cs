@@ -35,18 +35,10 @@ namespace Library
             // Add Authors in comboBoxAuthors
             comboBoxAuthors.Items.Add("Louise Wiljander");
             comboBoxAuthors.Items.Add("Linda Petersson");
-
-
-
         }
 
         // Created a new list of books
         public List<Book> bookList = new List<Book>();
-
-        //Fråga om detta
-        //Author testAuthor = new Author("Häst");
-
-        //Book testBook = new Book("123", "test", "en bok som heter test", testAuthor);
 
         private void ShowAllBooks(IEnumerable<Book> books)
         {
