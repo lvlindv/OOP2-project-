@@ -26,6 +26,17 @@ namespace Library.Services
             return bookRepository.All();
         }
 
+        public void Add(Book book)
+        {
+            bookRepository.Add(book);
+            // TODO: Raise the Updated event.
+        }
+
+        public void Remove(Book book)
+        {
+            bookRepository.Remove(book);
+            // TODO: Raise the Updated event.
+        }
 
         public IEnumerable<Book> GetAllThatContainsInTitle(string a)
         {
