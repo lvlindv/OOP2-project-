@@ -15,7 +15,8 @@ namespace Library
 {
     public partial class AddBookForm : Form
     {
-        public AddBookForm(BookService bookService)
+
+        public AddBookForm(BookService bookService, AuthorService authorService)
         {
             InitializeComponent();
 
@@ -24,9 +25,21 @@ namespace Library
             RepositoryFactory repFactory = new RepositoryFactory(context);
 
             bookService = new BookService(repFactory);
+            authorService = new AuthorService(repFactory);
+
+            ShowAllAuthors(authorService.All());
+            
         }
 
-       
+        public void ShowAllAuthors(IEnumerable<Author> authors)
+        {
+            comboBoxAuthor.Items.Clear();
+            foreach (Author author in authors)
+            {
+                comboBoxAuthor.Items.Add(author);
+            }
+        }
+
 
         private void AddBookForm_Load(object sender, EventArgs e)
         {
