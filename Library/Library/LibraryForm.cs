@@ -39,7 +39,7 @@ namespace Library
         //// Created a new list of books
         //public List<Book> bookList = new List<Book>();
 
-        private void ShowAllAuthors(IEnumerable<Author> authors)
+        public void ShowAllAuthors(IEnumerable<Author> authors)
         {
             comboBoxAuthors.Items.Clear();
             foreach (Author author in authors)
@@ -99,7 +99,7 @@ namespace Library
         // Add new book
         private void btnAddNewBook_Click(object sender, EventArgs e)
         {
-            AddBookForm AddBookForm = new AddBookForm(bookService);
+            AddBookForm AddBookForm = new AddBookForm(bookService, authorService);
             AddBookForm.Show();
         }
     }
