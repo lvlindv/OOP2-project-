@@ -17,36 +17,34 @@ namespace Library.Models {
         {
             base.Seed(context);
 
-            //LibraryContext db = new LibraryContext();
-
-            ////Create author object
-            //Author alexDumas = new Author()
-            //{
-            //    Name = "Alexandre Dumas"
-            //};
-
-            ////Create book object
-            //Book monteChristo = new Book()
-            //{
-            //    ISBN = "123",
-            //    Title = "The Count of Monte Christo",
-            //    Description = "A book about a count",
-            //    Author = alexDumas
-            //};
-
-            //// Add the book to the DbSet of books.
-            //db.Books.Add(monteChristo);
-
-            //// Persist changes to the database
-            //db.SaveChanges();
-
-            Book test = new Book()
+            //Create author /*object*/
+            Author alexDumas = new Author()
             {
-                Title = "testboken"
+                Name = "Linda Petersson"
             };
 
-            context.Books.Add(test);
+            //Create book object
+            Book monteChristo = new Book()
+            {
+                ISBN = "123",
+                Title = "The Adventures of Lulu and Dumpling",
+                Description = "A book about a count",
+                Author = alexDumas
+            };
+
+            //Add the book to the DbSet of books.
+            context.Books.Add(monteChristo);
+
+            //Persist changes to the database
             context.SaveChanges();
+
+            //Book test = new Book()
+            //{
+            //    Title = "testboken"
+            //};
+
+            //context.Books.Add(test);
+            //context.SaveChanges();
 
         }
     }
