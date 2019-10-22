@@ -43,7 +43,7 @@
             // lbBooks
             // 
             this.lbBooks.FormattingEnabled = true;
-            this.lbBooks.Location = new System.Drawing.Point(456, 56);
+            this.lbBooks.Location = new System.Drawing.Point(39, 16);
             this.lbBooks.Name = "lbBooks";
             this.lbBooks.Size = new System.Drawing.Size(261, 342);
             this.lbBooks.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // btnShowAllBooks
             // 
-            this.btnShowAllBooks.Location = new System.Drawing.Point(456, 404);
+            this.btnShowAllBooks.Location = new System.Drawing.Point(39, 364);
             this.btnShowAllBooks.Name = "btnShowAllBooks";
             this.btnShowAllBooks.Size = new System.Drawing.Size(124, 34);
             this.btnShowAllBooks.TabIndex = 1;
@@ -110,7 +110,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnShowAllBooks);
             this.tabPage1.Controls.Add(this.checkBoxOnlyAvailable);
+            this.tabPage1.Controls.Add(this.lbBooks);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -158,8 +160,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(849, 639);
-            this.Controls.Add(this.btnShowAllBooks);
-            this.Controls.Add(this.lbBooks);
             this.Controls.Add(this.tabControlLibrary);
             this.Name = "LibraryForm";
             this.Text = "Library";
