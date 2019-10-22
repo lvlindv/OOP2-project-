@@ -29,20 +29,29 @@
             this.textBoxAuthor = new System.Windows.Forms.TextBox();
             this.comboBoxAuthors = new System.Windows.Forms.ComboBox();
             this.BtnAddNewMember = new System.Windows.Forms.Button();
+            this.tabBooks = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabBooks.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbBooks
             // 
             this.lbBooks.FormattingEnabled = true;
-            this.lbBooks.Location = new System.Drawing.Point(12, 34);
+            this.lbBooks.Location = new System.Drawing.Point(39, 16);
             this.lbBooks.Name = "lbBooks";
-            this.lbBooks.Size = new System.Drawing.Size(437, 498);
+            this.lbBooks.Size = new System.Drawing.Size(261, 342);
             this.lbBooks.TabIndex = 0;
             this.lbBooks.SelectedIndexChanged += new System.EventHandler(this.lbBooks_SelectedIndexChanged);
             // 
             // btnShowAllBooks
             // 
-            this.btnShowAllBooks.Location = new System.Drawing.Point(12, 538);
+            this.btnShowAllBooks.Location = new System.Drawing.Point(39, 374);
             this.btnShowAllBooks.Name = "btnShowAllBooks";
             this.btnShowAllBooks.Size = new System.Drawing.Size(124, 34);
             this.btnShowAllBooks.TabIndex = 1;
@@ -53,7 +62,7 @@
             // checkBoxOnlyAvailable
             // 
             this.checkBoxOnlyAvailable.AutoSize = true;
-            this.checkBoxOnlyAvailable.Location = new System.Drawing.Point(12, 578);
+            this.checkBoxOnlyAvailable.Location = new System.Drawing.Point(39, 414);
             this.checkBoxOnlyAvailable.Name = "checkBoxOnlyAvailable";
             this.checkBoxOnlyAvailable.Size = new System.Drawing.Size(124, 17);
             this.checkBoxOnlyAvailable.TabIndex = 2;
@@ -71,7 +80,7 @@
             // comboBoxAuthors
             // 
             this.comboBoxAuthors.FormattingEnabled = true;
-            this.comboBoxAuthors.Location = new System.Drawing.Point(328, 546);
+            this.comboBoxAuthors.Location = new System.Drawing.Point(128, 401);
             this.comboBoxAuthors.Name = "comboBoxAuthors";
             this.comboBoxAuthors.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAuthors.TabIndex = 4;
@@ -79,7 +88,7 @@
             // 
             // BtnAddNewMember
             // 
-            this.BtnAddNewMember.Location = new System.Drawing.Point(545, 683);
+            this.BtnAddNewMember.Location = new System.Drawing.Point(184, 379);
             this.BtnAddNewMember.Name = "BtnAddNewMember";
             this.BtnAddNewMember.Size = new System.Drawing.Size(124, 43);
             this.BtnAddNewMember.TabIndex = 5;
@@ -87,20 +96,78 @@
             this.BtnAddNewMember.UseVisualStyleBackColor = true;
             this.BtnAddNewMember.Click += new System.EventHandler(this.BtnAddNewMember_Click);
             // 
+            // tabBooks
+            // 
+            this.tabBooks.Controls.Add(this.tabPage1);
+            this.tabBooks.Controls.Add(this.tabPage2);
+            this.tabBooks.Controls.Add(this.tabPage3);
+            this.tabBooks.Controls.Add(this.tabPage4);
+            this.tabBooks.Location = new System.Drawing.Point(39, 21);
+            this.tabBooks.Name = "tabBooks";
+            this.tabBooks.SelectedIndex = 0;
+            this.tabBooks.Size = new System.Drawing.Size(391, 498);
+            this.tabBooks.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.lbBooks);
+            this.tabPage1.Controls.Add(this.btnShowAllBooks);
+            this.tabPage1.Controls.Add(this.checkBoxOnlyAvailable);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(383, 472);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.comboBoxAuthors);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(383, 472);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(383, 472);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.BtnAddNewMember);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(383, 472);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 766);
-            this.Controls.Add(this.BtnAddNewMember);
-            this.Controls.Add(this.comboBoxAuthors);
+            this.ClientSize = new System.Drawing.Size(719, 639);
+            this.Controls.Add(this.tabBooks);
             this.Controls.Add(this.textBoxAuthor);
-            this.Controls.Add(this.checkBoxOnlyAvailable);
-            this.Controls.Add(this.btnShowAllBooks);
-            this.Controls.Add(this.lbBooks);
             this.Name = "LibraryForm";
             this.Text = "Library";
             this.Load += new System.EventHandler(this.LibraryForm_Load);
+            this.tabBooks.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,6 +181,11 @@
         private System.Windows.Forms.TextBox textBoxAuthor;
         private System.Windows.Forms.ComboBox comboBoxAuthors;
         private System.Windows.Forms.Button BtnAddNewMember;
+        private System.Windows.Forms.TabControl tabBooks;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
     }
 }
 
