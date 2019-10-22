@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,8 @@ namespace Library.Models
         /// <summary>
         /// Properties
         /// </summary>
-        public int LoanId { get; set; } //Primary key
+        [Key]
+        public int LoanId { get; set; } 
         public DateTime TimeOfLoan { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime? TimeOfReturn { get; set; } //Create method to check time of return VS due date
@@ -27,11 +29,15 @@ namespace Library.Models
         public Loan(DateTime timeOfLoan, BookCopy bookCopy, Member member)
         {
             //Set values of properties
-            this.LoanId = 1; //Incrementation of Id?
             this.TimeOfLoan = timeOfLoan;
             this.DueDate = timeOfLoan.AddDays(15);
             this.BookCopy = bookCopy;
             this.Member = member;
+        }
+
+        public Loan()
+        {
+
         }
     }
 }
