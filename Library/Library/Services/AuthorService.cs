@@ -27,10 +27,25 @@ namespace Library.Services
         }
 
 
+        // Add function  
+        public void Add(Author author)
+        {
+            authorRepository.Add(author);
+        }
+
+        // Remove function
+        public void Remove(Author author)
+        {
+            authorRepository.Remove(author);
+        }
+      
+
         public IEnumerable<Author> GetAllThatContainsInName(string b)
         {
             return authorRepository.All().Where(a => a.Name.Contains(b));
         }
+
+
 
         /// <summary>
         /// The Edit method makes sure that the given Book object is saved to the database and raises the Updated() event.

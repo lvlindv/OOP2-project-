@@ -21,6 +21,17 @@ namespace Library.Repositories
             return context.Authors;
         }
 
+        public void Add(Author author)
+        {
+            context.Authors.Add(author);
+        }
+
+        public void Remove(Author author)
+        {
+            context.Authors.Remove(author);
+        }
+
+        // Edit function from Book
         public void Edit(Author a)
         {
             // Because the object a was retrieved through the same context, we don't need to do a lookup. 
