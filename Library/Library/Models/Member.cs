@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,8 @@ namespace Library.Models
         /// <summary>
         /// Properties
         /// </summary>
-        public int MemberId { get; set; } //Primary key
+        [Key]
+        public int MemberId { get; set; }
         public int PersonalId { get; set; }
         public string Name { get; set; }
         public DateTime DateOfMembership { get; set; }
@@ -30,8 +32,15 @@ namespace Library.Models
             this.Name = name;
             this.DateOfMembership = dateofMembership;
 
-            List<Loan> loanList = new List<Loan>();
-            this.Loans = loanList;
+            this.Loans = new List<Loan>();
+        }
+
+        /// <summary>
+        /// Empty constructor
+        /// </summary>
+        public Member()
+        {
+            this.Loans = new List<Loan>();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Library.Models {
         public string ISBN { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public Author Author { get; set; }
+        public virtual Author Author { get; set; }
         // A book can have many copies, zero-to-many
         public virtual ICollection<BookCopy> BookCopies { get; set; }
 
@@ -30,13 +30,12 @@ namespace Library.Models {
             this.Description = Description;
             this.Author = Author;
 
-            List<BookCopy> copyList = new List<BookCopy>();
-            this.BookCopies = copyList;
+            this.BookCopies = new List<BookCopy>();
         }
 
         public Book()
         {
-
+            this.BookCopies = new List<BookCopy>();
         }
 
         /// <summary>
@@ -44,7 +43,7 @@ namespace Library.Models {
         /// </summary>
         public override string ToString()
         {
-            return String.Format("[{0}] -- {1}", this.BookId, this.ISBN, this.Title, this.Description);
+            return String.Format("[{0}] -- {1} -- {2}", this.ISBN, this.Title, this.Description);
         }
     }
 }
