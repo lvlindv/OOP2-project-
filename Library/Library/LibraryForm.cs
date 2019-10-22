@@ -90,7 +90,7 @@ namespace Library
         // Add new book
         private void btnAddNewBook_Click(object sender, EventArgs e)
         {
-            AddBookForm AddBookForm = new AddBookForm();
+            AddBookForm AddBookForm = new AddBookForm(bookService);
             AddBookForm.Show();
         }
     }

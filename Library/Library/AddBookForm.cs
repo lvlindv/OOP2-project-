@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Library.Models;
+using Library.Repositories;
+using Library.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +15,18 @@ namespace Library
 {
     public partial class AddBookForm : Form
     {
-        public AddBookForm()
+        public AddBookForm(BookService bookService)
         {
             InitializeComponent();
+
+            LibraryContext context = new LibraryContext();
+
+            RepositoryFactory repFactory = new RepositoryFactory(context);
+
+            bookService = new BookService(repFactory);
         }
 
-        
+       
 
         private void AddBookForm_Load(object sender, EventArgs e)
         {
@@ -57,7 +66,8 @@ namespace Library
             }
             else
             {
-                // Lägg till i listan 
+                // Lägg till i listan
+                
                 
 
                 MessageBox.Show("You have now added the book: " + textBoxTitle.Text);
