@@ -47,6 +47,7 @@ namespace Library
             {
                 lbBooks.Items.Add(book);
             }
+            
         }
 
         private void LibraryForm_Load(object sender, EventArgs e)
@@ -69,6 +70,7 @@ namespace Library
 
         }
 
+        // Add new member
         private void BtnAddNewMember_Click(object sender, EventArgs e)
         {
             AddMemberForm AddMemberForm = new AddMemberForm();
@@ -83,6 +85,13 @@ namespace Library
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // Add new book
+        private void btnAddNewBook_Click(object sender, EventArgs e)
+        {
+            AddBookForm AddBookForm = new AddBookForm();
+            AddBookForm.Show();
         }
     }
 }

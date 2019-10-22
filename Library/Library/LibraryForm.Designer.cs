@@ -162,6 +162,7 @@
             this.btnAddNewBook.TabIndex = 7;
             this.btnAddNewBook.Text = "Add new book";
             this.btnAddNewBook.UseVisualStyleBackColor = true;
+            this.btnAddNewBook.Click += new System.EventHandler(this.btnAddNewBook_Click);
             // 
             // LibraryForm
             // 
