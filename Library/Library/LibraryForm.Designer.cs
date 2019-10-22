@@ -88,7 +88,7 @@
             // 
             // BtnAddNewMember
             // 
-            this.BtnAddNewMember.Location = new System.Drawing.Point(557, 164);
+            this.BtnAddNewMember.Location = new System.Drawing.Point(557, 487);
             this.BtnAddNewMember.Name = "BtnAddNewMember";
             this.BtnAddNewMember.Size = new System.Drawing.Size(124, 43);
             this.BtnAddNewMember.TabIndex = 5;
@@ -156,12 +156,13 @@
             // 
             // btnAddNewBook
             // 
-            this.btnAddNewBook.Location = new System.Drawing.Point(557, 102);
+            this.btnAddNewBook.Location = new System.Drawing.Point(557, 383);
             this.btnAddNewBook.Name = "btnAddNewBook";
             this.btnAddNewBook.Size = new System.Drawing.Size(124, 43);
             this.btnAddNewBook.TabIndex = 7;
             this.btnAddNewBook.Text = "Add new book";
             this.btnAddNewBook.UseVisualStyleBackColor = true;
+            this.btnAddNewBook.Click += new System.EventHandler(this.btnAddNewBook_Click);
             // 
             // LibraryForm
             // 

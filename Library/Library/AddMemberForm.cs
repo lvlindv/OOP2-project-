@@ -44,5 +44,10 @@ namespace Library
         {
 
         }
+
+        private void AddMemberForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
