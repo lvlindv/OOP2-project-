@@ -43,7 +43,7 @@ namespace Library.Models {
         /// </summary>
         public override string ToString()
         {
-            return String.Format("[{0}] -- {1}", this.BookId, this.ISBN, this.Title, this.Description);
+            return String.Format("[{0}] -- {1} -- {2}", this.ISBN, this.Title, this.Description);
         }
     }
 }
