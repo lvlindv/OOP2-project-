@@ -38,7 +38,7 @@ namespace Library.Models
 
         public override string ToString()
         {
-            return String.Format("[{0}]", this.Name);
+            return String.Format("{0}", this.Name);
         }
     }
 }

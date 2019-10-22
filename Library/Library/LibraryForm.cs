@@ -30,7 +30,9 @@ namespace Library
             RepositoryFactory repFactory = new RepositoryFactory(context);
 
             this.bookService = new BookService(repFactory);
+            this.authorService = new AuthorService(repFactory);
 
+            ShowAllAuthors(authorService.All());
 
         }
 
@@ -75,7 +77,6 @@ namespace Library
 
         private void comboBoxAuthors_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ShowAllAuthors(authorService.All());
         }
 
         // Add new member
