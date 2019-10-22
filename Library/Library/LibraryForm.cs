@@ -17,6 +17,7 @@ namespace Library
     {
 
         BookService bookService;
+        AuthorService authorService;
 
         public LibraryForm()
         {
@@ -30,13 +31,20 @@ namespace Library
 
             this.bookService = new BookService(repFactory);
 
-            // Add Authors in comboBoxAuthors
-            comboBoxAuthors.Items.Add("Louise Wiljander");
-            comboBoxAuthors.Items.Add("Linda Petersson");
+
         }
 
         //// Created a new list of books
         //public List<Book> bookList = new List<Book>();
+
+        private void ShowAllAuthors(IEnumerable<Author> authors)
+        {
+            comboBoxAuthors.Items.Clear();
+            foreach (Author author in authors)
+            {
+                comboBoxAuthors.Items.Add(author);
+            }
+        }
 
         private void ShowAllBooks(IEnumerable<Book> books)
         {
@@ -67,7 +75,7 @@ namespace Library
 
         private void comboBoxAuthors_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ShowAllAuthors(authorService.All());
         }
 
         // Add new member

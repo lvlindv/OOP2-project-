@@ -35,5 +35,10 @@ namespace Library.Models
             this.Books = new List<Book>();
 
         }
+
+        public override string ToString()
+        {
+            return String.Format("[{0}]", this.Name);
+        }
     }
 }
