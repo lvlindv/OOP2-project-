@@ -16,7 +16,7 @@ namespace Library.Models
         /// Properties
         /// </summary>
         [Key]
-        public int AuthorId { get; set; } //Primary key
+        public int AuthorId { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Book> Books { get; set; }
 
@@ -27,12 +27,12 @@ namespace Library.Models
         {
             //Set values of properties
             this.Name = name;
-            List<Book> bookList = new List<Book>();
-            this.Books = bookList;
+            this.Books  = new List<Book>();
         }
 
         public Author()
         {
+            this.Books = new List<Book>();
 
         }
     }
