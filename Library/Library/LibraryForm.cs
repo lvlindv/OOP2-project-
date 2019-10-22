@@ -36,20 +36,27 @@ namespace Library
             comboBoxAuthors.Items.Add("Louise Wiljander");
             comboBoxAuthors.Items.Add("Linda Petersson");
 
+
+
         }
 
         // Created a new list of books
         public List<Book> bookList = new List<Book>();
 
+        //Fråga om detta
+        //Author testAuthor = new Author("Häst");
+
+        //Book testBook = new Book("123", "test", "en bok som heter test", testAuthor);
+
         private void ShowAllBooks(IEnumerable<Book> books)
         {
-            // Code from project starting code. Moved this code to btnShowAllBooks
+            //Code from project starting code.Moved this code to btnShowAllBooks
 
-            //lbBooks.Items.Clear();
-            //foreach (Book book in books)
-            //{
-            //    lbBooks.Items.Add(book);
-            //}
+            lbBooks.Items.Clear();
+            foreach (Book book in books)
+            {
+                lbBooks.Items.Add(book);
+            }
         }
 
         private void LibraryForm_Load(object sender, EventArgs e)
