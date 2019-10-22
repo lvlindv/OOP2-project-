@@ -16,8 +16,8 @@ namespace Library.Models
         /// Properties
         /// </summary>
         [Key]
-        public int CopyId { get; set; } //Primary key, when do we add?
-        public Book Book { get; set; }
+        public int CopyId { get; set; }
+        public virtual Book Book { get; set; }
         public int Condition { get; set; } //Can only be 1-10, implement rule
 
         /// <summary>
@@ -27,6 +27,11 @@ namespace Library.Models
         {
             this.Book = Book;
             this.Condition = Condition;
+        }
+
+        public BookCopy()
+        {
+
         }
     }
 }
