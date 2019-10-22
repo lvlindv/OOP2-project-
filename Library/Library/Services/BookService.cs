@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Library.Services
 {
-    class BookService
+    public class BookService
     {
         /// <summary>
         /// service doesn't need a context but it needs a repository.
