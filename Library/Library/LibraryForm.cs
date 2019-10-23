@@ -18,6 +18,7 @@ namespace Library
 
         BookService bookService;
         AuthorService authorService;
+        MemberService memberService;
 
         public LibraryForm()
         {
@@ -31,9 +32,11 @@ namespace Library
 
             this.bookService = new BookService(repFactory);
             this.authorService = new AuthorService(repFactory);
+            this.memberService = new MemberService(repFactory);
 
             AuthorTabShowAllAuthors(authorService.All());
             BookTabShowAllAuthors(authorService.All());
+            MemberTabShowAllMembers(memberService.All());
 
         }
 
@@ -77,11 +80,6 @@ namespace Library
         {
         }
 
-        private void BtnAddNewMember_Click(object sender, EventArgs e)
-        {
-            AddMemberForm AddMemberForm = new AddMemberForm();
-            AddMemberForm.Show();
-        }
 
         private void lbBooks_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -177,6 +175,62 @@ namespace Library
                 AuthorTabShowAllAuthors(authorService.All());
                 BookTabShowAllAuthors(authorService.All());
             }
+        }
+
+        //
+        // ADD NEW MEMBER
+        //
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void MemberTabShowAllMembers(IEnumerable<Member> members)
+        {
+            lbMembers.Items.Clear();
+            foreach (Member member in members)
+            {
+                lbMembers.Items.Add(member);
+            }
+        }
+
+        private void textBoxMemberPersonalID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxMemberName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnAddNewMember_Click(object sender, EventArgs e)
+        {
+            //AddMemberForm AddMemberForm = new AddMemberForm();
+            //AddMemberForm.Show();
+
+            if (textBoxMemberName.Text == "" || textBoxMemberPersonalID.Text == "")
+            {
+                MessageBox.Show("", "You need to write something!");
+            }
+            else
+            {
+                DateTime createdDate = DateTime.Today;
+                Member member = new Member(Convert.ToInt32(textBoxMemberPersonalID.Text), textBoxMemberName.Text, createdDate);
+                memberService.Add(member);
+
+                MessageBox.Show("You have now added the member: " + textBoxMemberName.Text);
+                textBoxMemberName.Clear();
+                textBoxMemberPersonalID.Clear();
+                MemberTabShowAllMembers(memberService.All());
+            }
+
+        }
+
+        private void lbMembers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
