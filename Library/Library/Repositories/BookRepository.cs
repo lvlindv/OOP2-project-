@@ -8,18 +8,33 @@ namespace Library.Repositories
 {
     public class BookRepository
     {
+        /// <summary>
+        /// Instantiates a library context
+        /// </summary>
         LibraryContext context;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="c">A library context</param>
         public BookRepository(LibraryContext c)
         {
             this.context = c;
         }
 
+        /// <summary>
+        /// Method to get all books from db
+        /// </summary>
+        /// <returns>A list of books</returns>
         public IEnumerable<Book> All()
         {
             return context.Books;
         }
 
+        /// <summary>
+        /// Method to add books to db and save changes in the db
+        /// </summary>
+        /// <param name="book">A book object</param>
         public void Add(Book book)
         {
             context.Books.Add(book);

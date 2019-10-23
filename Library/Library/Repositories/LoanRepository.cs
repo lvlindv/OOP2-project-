@@ -9,18 +9,33 @@ namespace Library.Repositories
 {
     public class LoanRepository
     {
+        /// <summary>
+        /// Instantiates library context
+        /// </summary>
         LibraryContext context;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="c">A library context</param>
         public LoanRepository(LibraryContext c)
         {
             this.context = c;
         }
 
+        /// <summary>
+        /// Method to get all loans from db
+        /// </summary>
+        /// <returns>A list of loans</returns>
         public IEnumerable<Loan> All()
         {
             return context.Loans;
         }
 
+        /// <summary>
+        /// Method to add a loan to db
+        /// </summary>
+        /// <param name="loan">Takes a loan object</param>
         public void Add(Loan loan)
         {
             context.Loans.Add(loan);
