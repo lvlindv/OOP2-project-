@@ -24,16 +24,16 @@ namespace Library.Models {
             };
 
             //Create book object
-            Book monteChristo = new Book()
-            {
-                ISBN = "123",
-                Title = "The Adventures of Lulu and Dumpling",
-                Description = "A book about a count",
-                Author = alexDumas
-            };
+            ////Book monteChristo = new Book()
+            ////{
+            ////    ISBN = "123",
+            ////    Title = "The Adventures of Lulu and Dumpling",
+            ////    Description = "A book about a count",
+            ////    Author = alexDumas
+            ////};
 
             //Add the book to the DbSet of books.
-            context.Books.Add(monteChristo);
+            context.Authors.Add(alexDumas);
 
             //Persist changes to the database
             context.SaveChanges();
