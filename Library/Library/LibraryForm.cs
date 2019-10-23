@@ -149,10 +149,16 @@ namespace Library
                 Book book = new Book(textBoxISBN.Text, textBoxTitle.Text, textBoxDescription.Text, author);
                 BookCopy bookCopy = new BookCopy(book, 10);
                 book.BookCopies.Add(bookCopy);
+                author.Books.Add(book);
                 bookService.Add(book);
 
                 MessageBox.Show("You have now added the book: " + textBoxTitle.Text);
             }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
