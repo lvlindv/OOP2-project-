@@ -26,11 +26,6 @@ namespace Library.Repositories
             context.SaveChanges();
         }
 
-        public void Remove(Book book)
-        {
-            context.Books.Remove(book);
-        }
-
         public void Edit(Book b)
         {
             // Because the object b was retrieved through the same context, we don't need to do a lookup. 

@@ -8,42 +8,37 @@ using System.Threading.Tasks;
 
 namespace Library.Services
 {
-    public class BookService
+    public class LoanService
     {
         /// <summary>
         /// service doesn't need a context but it needs a repository.
         /// </summary>
-        BookRepository bookRepository;
+        LoanRepository loanRepository;
 
         /// <param name="rFactory">A repository factory, so the service can create its own repository.</param>
-        public BookService(RepositoryFactory rFactory)
+        public LoanService(RepositoryFactory rFactory)
         {
-            this.bookRepository = rFactory.CreateBookRepository();
+            this.loanRepository = rFactory.CreateLoanRepository();
         }
 
-        public IEnumerable<Book> All()
+        public IEnumerable<Loan> All()
         {
-            return bookRepository.All();
+            return loanRepository.All();
         }
 
-        public void Add(Book book)
+        public void Add(Loan loan)
         {
-            bookRepository.Add(book);
+            loanRepository.Add(loan);
             // TODO: Raise the Updated event.
-        }
-
-        public IEnumerable<Book> GetAllThatContainsInTitle(string a)
-        {
-            return bookRepository.All().Where(b => b.Title.Contains(a));
         }
 
         /// <summary>
         /// The Edit method makes sure that the given Book object is saved to the database and raises the Updated() event.
         /// </summary>
         /// <param name="b"></param>
-        public void Edit(Book b)
+        public void Edit(Loan l)
         {
-            bookRepository.Edit(b);
+            loanRepository.Edit(l);
             // TODO: Raise the Updated event.
         }
     }

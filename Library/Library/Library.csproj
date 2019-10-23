@@ -76,11 +76,13 @@
     <Compile Include="Repositories\BookRepository.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\LibraryContext.cs" />
+    <Compile Include="Repositories\LoanRepository.cs" />
     <Compile Include="Repositories\MemberRepository.cs" />
     <Compile Include="Repositories\RepositoryFactory.cs" />
     <Compile Include="Services\AuthorService.cs" />
     <Compile Include="Services\BookService.cs" />
     <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\LoanService.cs" />
     <Compile Include="Services\MemberService.cs" />
     <EmbeddedResource Include="LibraryForm.resx">
       <DependentUpon>LibraryForm.cs</DependentUpon>

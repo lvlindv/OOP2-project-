@@ -31,5 +31,10 @@ namespace Library.Repositories
         {
             return new MemberRepository(context);
         }
+
+        public LoanRepository CreateLoanRepository()
+        {
+            return new LoanRepository(context);
+        }
     }
 }
