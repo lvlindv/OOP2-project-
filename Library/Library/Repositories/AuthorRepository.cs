@@ -24,6 +24,7 @@ namespace Library.Repositories
         public void Add(Author author)
         {
             context.Authors.Add(author);
+            context.SaveChanges();
         }
 
         public void Remove(Author author)
