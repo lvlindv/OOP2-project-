@@ -21,21 +21,23 @@ namespace Library.Services
             this.authorRepository = rFactory.CreateAuthorRepository();
         }
 
+        /// <summary>
+        /// Method to get all authors
+        /// </summary>
+        /// <returns>A list of authors</returns>
         public IEnumerable<Author> All()
         {
             return authorRepository.All();
         }
 
-        // Add function  
+        /// <summary>
+        /// Method to add authors to db 
+        /// </summary>
+        /// <param name="author">Takes an author object</param>
         public void Add(Author author)
         {
             authorRepository.Add(author);
             // TODO: Raise the Updated event.
-        }
-
-        public IEnumerable<Author> GetAllThatContainsInName(string b)
-        {
-            return authorRepository.All().Where(a => a.Name.Contains(b));
         }
 
         /// <summary>

@@ -21,11 +21,19 @@ namespace Library.Services
             this.loanRepository = rFactory.CreateLoanRepository();
         }
 
+        /// <summary>
+        /// Method to get all loans
+        /// </summary>
+        /// <returns>A list of loans</returns>
         public IEnumerable<Loan> All()
         {
             return loanRepository.All();
         }
 
+        /// <summary>
+        /// Method to add loan to db
+        /// </summary>
+        /// <param name="loan">A loan object</param>
         public void Add(Loan loan)
         {
             loanRepository.Add(loan);
