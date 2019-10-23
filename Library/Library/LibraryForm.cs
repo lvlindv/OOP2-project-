@@ -37,17 +37,6 @@ namespace Library
 
         }
 
-
-
-        public void AuthorTabShowAllAuthors(IEnumerable<Author> authors)
-        {
-            comboBoxAuthors.Items.Clear();
-            foreach (Author author in authors)
-            {
-                comboBoxAuthors.Items.Add(author);
-            }
-        }
-
         public void BookTabShowAllAuthors(IEnumerable<Author> authors)
         {
             comboBoxAuthor.Items.Clear();
@@ -99,38 +88,32 @@ namespace Library
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         //
         // ADD NEW BOOK
         //
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+        }
+
         private void textBoxISBN_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void textBoxTitle_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void textBoxDescription_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void comboBoxAuthor_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void textBoxCopies_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnAddNewBook_Click(object sender, EventArgs e)
@@ -149,9 +132,50 @@ namespace Library
                 Book book = new Book(textBoxISBN.Text, textBoxTitle.Text, textBoxDescription.Text, author);
                 BookCopy bookCopy = new BookCopy(book, 10);
                 book.BookCopies.Add(bookCopy);
+                author.Books.Add(book);
                 bookService.Add(book);
 
                 MessageBox.Show("You have now added the book: " + textBoxTitle.Text);
+                textBoxISBN.Clear();
+                textBoxTitle.Clear();
+                textBoxDescription.Clear();
+                ShowAllBooks(bookService.All());
+            }
+        }
+
+        //
+        // ADD NEW AUTHOR
+        //
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+        }
+
+        public void AuthorTabShowAllAuthors(IEnumerable<Author> authors)
+        {
+            lbAuthors.Items.Clear();
+            foreach (Author author in authors)
+            {
+                lbAuthors.Items.Add(author);
+            }
+        }
+
+        private void btnAddNewAuthor_Click(object sender, EventArgs e)
+        {
+
+            if (textBoxAuthorName.Text == "")
+            {
+                MessageBox.Show("", "You need to write something!");
+            }
+            else
+            {
+                Author author = new Author(textBoxAuthorName.Text);
+                authorService.Add(author);
+
+                MessageBox.Show("You have now added the author: " + textBoxAuthorName.Text);
+                textBoxAuthorName.Clear();
+                AuthorTabShowAllAuthors(authorService.All());
+                BookTabShowAllAuthors(authorService.All());
             }
         }
     }
