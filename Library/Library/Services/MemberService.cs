@@ -16,7 +16,7 @@ namespace Library.Services
         MemberRepository memberRepository;
 
         /// <summary>
-        /// 
+        /// Constructor
         /// </summary>
         /// <param name="rFactory"></param>
         public MemberService(RepositoryFactory rFactory)
@@ -25,7 +25,7 @@ namespace Library.Services
         }
 
         /// <summary>
-        /// Method that return all members
+        /// Method that gets all members
         /// </summary>
         /// <returns>A list of members</returns>
         public IEnumerable<Member> All()
