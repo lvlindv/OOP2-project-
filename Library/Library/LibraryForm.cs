@@ -17,6 +17,7 @@ namespace Library
     {
 
         BookService bookService;
+        BookCopyService bookCopyService;
         AuthorService authorService;
         MemberService memberService;
 
@@ -31,6 +32,7 @@ namespace Library
             RepositoryFactory repFactory = new RepositoryFactory(context);
 
             this.bookService = new BookService(repFactory);
+            this.bookCopyService = new BookCopyService(repFactory);
             this.authorService = new AuthorService(repFactory);
             this.memberService = new MemberService(repFactory);
 
@@ -129,6 +131,7 @@ namespace Library
                 var author = (Author)comboBoxAuthor.SelectedItem;
                 Book book = new Book(textBoxISBN.Text, textBoxTitle.Text, textBoxDescription.Text, author);
                 BookCopy bookCopy = new BookCopy(book, 10);
+                bookCopyService.Add(bookCopy);
                 book.BookCopies.Add(bookCopy);
                 author.Books.Add(book);
                 bookService.Add(book);
