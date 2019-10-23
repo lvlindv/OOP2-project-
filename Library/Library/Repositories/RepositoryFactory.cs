@@ -36,5 +36,10 @@ namespace Library.Repositories
         {
             return new LoanRepository(context);
         }
+
+        public BookCopyRepository CreateBookCopyRepository()
+        {
+            return new BookCopyRepository(context);
+        }
     }
 }
