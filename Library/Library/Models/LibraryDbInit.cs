@@ -23,28 +23,11 @@ namespace Library.Models {
                 Name = "Linda Petersson"
             };
 
-            //Create book object
-            ////Book monteChristo = new Book()
-            ////{
-            ////    ISBN = "123",
-            ////    Title = "The Adventures of Lulu and Dumpling",
-            ////    Description = "A book about a count",
-            ////    Author = alexDumas
-            ////};
-
             //Add the book to the DbSet of books.
             context.Authors.Add(alexDumas);
 
             //Persist changes to the database
             context.SaveChanges();
-
-            //Book test = new Book()
-            //{
-            //    Title = "testboken"
-            //};
-
-            //context.Books.Add(test);
-            //context.SaveChanges();
 
         }
     }
