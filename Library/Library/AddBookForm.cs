@@ -31,6 +31,8 @@ namespace Library
             
         }
 
+        
+
         public void ShowAllAuthors(IEnumerable<Author> authors)
         {
             comboBoxAuthor.Items.Clear();
@@ -79,10 +81,8 @@ namespace Library
             }
             else
             {
-                // Lägg till i listan
                 
                 
-
                 MessageBox.Show("You have now added the book: " + textBoxTitle.Text);
             }
         }
