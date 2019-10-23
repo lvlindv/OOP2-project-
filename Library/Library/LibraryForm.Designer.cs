@@ -35,6 +35,14 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btnAddNewBook = new System.Windows.Forms.Button();
+            this.textBoxISBN = new System.Windows.Forms.TextBox();
+            this.labelISBN = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.textBoxTitle = new System.Windows.Forms.TextBox();
+            this.labelDescription = new System.Windows.Forms.Label();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.comboBoxAuthor = new System.Windows.Forms.ComboBox();
+            this.labelAuthor = new System.Windows.Forms.Label();
             this.tabControlLibrary.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -88,7 +96,7 @@
             // 
             // BtnAddNewMember
             // 
-            this.BtnAddNewMember.Location = new System.Drawing.Point(557, 487);
+            this.BtnAddNewMember.Location = new System.Drawing.Point(320, 593);
             this.BtnAddNewMember.Name = "BtnAddNewMember";
             this.BtnAddNewMember.Size = new System.Drawing.Size(124, 43);
             this.BtnAddNewMember.TabIndex = 5;
@@ -105,18 +113,27 @@
             this.tabControlLibrary.Location = new System.Drawing.Point(39, 21);
             this.tabControlLibrary.Name = "tabControlLibrary";
             this.tabControlLibrary.SelectedIndex = 0;
-            this.tabControlLibrary.Size = new System.Drawing.Size(391, 498);
+            this.tabControlLibrary.Size = new System.Drawing.Size(1044, 510);
             this.tabControlLibrary.TabIndex = 6;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.labelAuthor);
+            this.tabPage1.Controls.Add(this.comboBoxAuthor);
+            this.tabPage1.Controls.Add(this.textBoxDescription);
+            this.tabPage1.Controls.Add(this.labelDescription);
+            this.tabPage1.Controls.Add(this.textBoxTitle);
+            this.tabPage1.Controls.Add(this.labelTitle);
+            this.tabPage1.Controls.Add(this.labelISBN);
+            this.tabPage1.Controls.Add(this.textBoxISBN);
+            this.tabPage1.Controls.Add(this.btnAddNewBook);
             this.tabPage1.Controls.Add(this.btnShowAllBooks);
             this.tabPage1.Controls.Add(this.checkBoxOnlyAvailable);
             this.tabPage1.Controls.Add(this.lbBooks);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(383, 472);
+            this.tabPage1.Size = new System.Drawing.Size(1036, 484);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -156,7 +173,7 @@
             // 
             // btnAddNewBook
             // 
-            this.btnAddNewBook.Location = new System.Drawing.Point(557, 383);
+            this.btnAddNewBook.Location = new System.Drawing.Point(439, 250);
             this.btnAddNewBook.Name = "btnAddNewBook";
             this.btnAddNewBook.Size = new System.Drawing.Size(124, 43);
             this.btnAddNewBook.TabIndex = 7;
@@ -164,12 +181,80 @@
             this.btnAddNewBook.UseVisualStyleBackColor = true;
             this.btnAddNewBook.Click += new System.EventHandler(this.btnAddNewBook_Click);
             // 
+            // textBoxISBN
+            // 
+            this.textBoxISBN.Location = new System.Drawing.Point(442, 59);
+            this.textBoxISBN.Name = "textBoxISBN";
+            this.textBoxISBN.Size = new System.Drawing.Size(100, 20);
+            this.textBoxISBN.TabIndex = 8;
+            this.textBoxISBN.TextChanged += new System.EventHandler(this.textBoxISBN_TextChanged);
+            // 
+            // labelISBN
+            // 
+            this.labelISBN.AutoSize = true;
+            this.labelISBN.Location = new System.Drawing.Point(442, 40);
+            this.labelISBN.Name = "labelISBN";
+            this.labelISBN.Size = new System.Drawing.Size(32, 13);
+            this.labelISBN.TabIndex = 9;
+            this.labelISBN.Text = "ISBN";
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Location = new System.Drawing.Point(445, 86);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(27, 13);
+            this.labelTitle.TabIndex = 10;
+            this.labelTitle.Text = "Title";
+            // 
+            // textBoxTitle
+            // 
+            this.textBoxTitle.Location = new System.Drawing.Point(442, 102);
+            this.textBoxTitle.Name = "textBoxTitle";
+            this.textBoxTitle.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTitle.TabIndex = 11;
+            this.textBoxTitle.TextChanged += new System.EventHandler(this.textBoxTitle_TextChanged);
+            // 
+            // labelDescription
+            // 
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Location = new System.Drawing.Point(442, 134);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(60, 13);
+            this.labelDescription.TabIndex = 12;
+            this.labelDescription.Text = "Description";
+            // 
+            // textBoxDescription
+            // 
+            this.textBoxDescription.Location = new System.Drawing.Point(442, 150);
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(121, 20);
+            this.textBoxDescription.TabIndex = 13;
+            this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
+            // 
+            // comboBoxAuthor
+            // 
+            this.comboBoxAuthor.FormattingEnabled = true;
+            this.comboBoxAuthor.Location = new System.Drawing.Point(442, 210);
+            this.comboBoxAuthor.Name = "comboBoxAuthor";
+            this.comboBoxAuthor.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxAuthor.TabIndex = 14;
+            this.comboBoxAuthor.SelectedIndexChanged += new System.EventHandler(this.comboBoxAuthor_SelectedIndexChanged);
+            // 
+            // labelAuthor
+            // 
+            this.labelAuthor.AutoSize = true;
+            this.labelAuthor.Location = new System.Drawing.Point(442, 191);
+            this.labelAuthor.Name = "labelAuthor";
+            this.labelAuthor.Size = new System.Drawing.Size(38, 13);
+            this.labelAuthor.TabIndex = 15;
+            this.labelAuthor.Text = "Author";
+            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 639);
-            this.Controls.Add(this.btnAddNewBook);
+            this.ClientSize = new System.Drawing.Size(1535, 730);
             this.Controls.Add(this.BtnAddNewMember);
             this.Controls.Add(this.tabControlLibrary);
             this.Name = "LibraryForm";
@@ -198,6 +283,14 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button btnAddNewBook;
+        private System.Windows.Forms.Label labelAuthor;
+        private System.Windows.Forms.ComboBox comboBoxAuthor;
+        private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.Label labelDescription;
+        private System.Windows.Forms.TextBox textBoxTitle;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label labelISBN;
+        private System.Windows.Forms.TextBox textBoxISBN;
     }
 }
 

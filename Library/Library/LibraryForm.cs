@@ -32,19 +32,28 @@ namespace Library
             this.bookService = new BookService(repFactory);
             this.authorService = new AuthorService(repFactory);
 
-            ShowAllAuthors(authorService.All());
+            AuthorTabShowAllAuthors(authorService.All());
+            BookTabShowAllAuthors(authorService.All());
 
         }
 
-        //// Created a new list of books
-        //public List<Book> bookList = new List<Book>();
 
-        public void ShowAllAuthors(IEnumerable<Author> authors)
+
+        public void AuthorTabShowAllAuthors(IEnumerable<Author> authors)
         {
             comboBoxAuthors.Items.Clear();
             foreach (Author author in authors)
             {
                 comboBoxAuthors.Items.Add(author);
+            }
+        }
+
+        public void BookTabShowAllAuthors(IEnumerable<Author> authors)
+        {
+            comboBoxAuthor.Items.Clear();
+            foreach (Author author in authors)
+            {
+                comboBoxAuthor.Items.Add(author);
             }
         }
 
@@ -79,7 +88,6 @@ namespace Library
         {
         }
 
-        // Add new member
         private void BtnAddNewMember_Click(object sender, EventArgs e)
         {
             AddMemberForm AddMemberForm = new AddMemberForm();
@@ -96,11 +104,55 @@ namespace Library
 
         }
 
-        // Add new book
+
+        //
+        // ADD NEW BOOK
+        //
+        private void textBoxISBN_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxAuthor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxCopies_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnAddNewBook_Click(object sender, EventArgs e)
         {
-            AddBookForm AddBookForm = new AddBookForm(bookService, authorService);
-            AddBookForm.Show();
+            //AddBookForm AddBookForm = new AddBookForm(bookService, authorService);
+            //AddBookForm.Show();
+
+            if (textBoxISBN.Text == "" || textBoxTitle.Text == "" || textBoxDescription.Text == "" )
+            {
+                MessageBox.Show("", "You need to write something!");
+            }
+            else
+
+            {
+                var author = (Author)comboBoxAuthor.SelectedItem;
+                Book book = new Book(textBoxISBN.Text, textBoxTitle.Text, textBoxDescription.Text, author);
+                BookCopy bookCopy = new BookCopy(book, 10);
+                book.BookCopies.Add(bookCopy);
+                bookService.Add(book);
+
+                MessageBox.Show("You have now added the book: " + textBoxTitle.Text);
+            }
         }
     }
 }
