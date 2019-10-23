@@ -50,10 +50,14 @@
             this.labelPersonalID = new System.Windows.Forms.Label();
             this.lbMembers = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBoxBookInfo = new System.Windows.Forms.GroupBox();
+            this.comboBoxBooksByAuthor = new System.Windows.Forms.ComboBox();
+            this.btnBooksByAuthor = new System.Windows.Forms.Button();
             this.tabControlLibrary.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBoxBookInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbBooks
@@ -117,15 +121,9 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.labelAuthor);
-            this.tabPage1.Controls.Add(this.comboBoxAuthor);
-            this.tabPage1.Controls.Add(this.textBoxDescription);
-            this.tabPage1.Controls.Add(this.labelDescription);
-            this.tabPage1.Controls.Add(this.textBoxTitle);
-            this.tabPage1.Controls.Add(this.labelTitle);
-            this.tabPage1.Controls.Add(this.labelISBN);
-            this.tabPage1.Controls.Add(this.textBoxISBN);
-            this.tabPage1.Controls.Add(this.btnAddNewBook);
+            this.tabPage1.Controls.Add(this.btnBooksByAuthor);
+            this.tabPage1.Controls.Add(this.comboBoxBooksByAuthor);
+            this.tabPage1.Controls.Add(this.groupBoxBookInfo);
             this.tabPage1.Controls.Add(this.btnShowAllBooks);
             this.tabPage1.Controls.Add(this.checkBoxOnlyAvailable);
             this.tabPage1.Controls.Add(this.lbBooks);
@@ -141,7 +139,7 @@
             // labelAuthor
             // 
             this.labelAuthor.AutoSize = true;
-            this.labelAuthor.Location = new System.Drawing.Point(442, 191);
+            this.labelAuthor.Location = new System.Drawing.Point(19, 182);
             this.labelAuthor.Name = "labelAuthor";
             this.labelAuthor.Size = new System.Drawing.Size(38, 13);
             this.labelAuthor.TabIndex = 15;
@@ -150,7 +148,7 @@
             // comboBoxAuthor
             // 
             this.comboBoxAuthor.FormattingEnabled = true;
-            this.comboBoxAuthor.Location = new System.Drawing.Point(442, 210);
+            this.comboBoxAuthor.Location = new System.Drawing.Point(19, 201);
             this.comboBoxAuthor.Name = "comboBoxAuthor";
             this.comboBoxAuthor.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAuthor.TabIndex = 14;
@@ -158,16 +156,17 @@
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(442, 150);
+            this.textBoxDescription.Location = new System.Drawing.Point(16, 141);
+            this.textBoxDescription.MaximumSize = new System.Drawing.Size(200, 200);
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(121, 20);
+            this.textBoxDescription.Size = new System.Drawing.Size(124, 20);
             this.textBoxDescription.TabIndex = 13;
             this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(442, 134);
+            this.labelDescription.Location = new System.Drawing.Point(19, 125);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(60, 13);
             this.labelDescription.TabIndex = 12;
@@ -175,7 +174,7 @@
             // 
             // textBoxTitle
             // 
-            this.textBoxTitle.Location = new System.Drawing.Point(442, 102);
+            this.textBoxTitle.Location = new System.Drawing.Point(19, 93);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(100, 20);
             this.textBoxTitle.TabIndex = 11;
@@ -184,7 +183,7 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(445, 86);
+            this.labelTitle.Location = new System.Drawing.Point(22, 77);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(27, 13);
             this.labelTitle.TabIndex = 10;
@@ -193,7 +192,7 @@
             // labelISBN
             // 
             this.labelISBN.AutoSize = true;
-            this.labelISBN.Location = new System.Drawing.Point(442, 40);
+            this.labelISBN.Location = new System.Drawing.Point(19, 31);
             this.labelISBN.Name = "labelISBN";
             this.labelISBN.Size = new System.Drawing.Size(32, 13);
             this.labelISBN.TabIndex = 9;
@@ -201,7 +200,7 @@
             // 
             // textBoxISBN
             // 
-            this.textBoxISBN.Location = new System.Drawing.Point(442, 59);
+            this.textBoxISBN.Location = new System.Drawing.Point(19, 50);
             this.textBoxISBN.Name = "textBoxISBN";
             this.textBoxISBN.Size = new System.Drawing.Size(100, 20);
             this.textBoxISBN.TabIndex = 8;
@@ -209,7 +208,7 @@
             // 
             // btnAddNewBook
             // 
-            this.btnAddNewBook.Location = new System.Drawing.Point(439, 250);
+            this.btnAddNewBook.Location = new System.Drawing.Point(16, 241);
             this.btnAddNewBook.Name = "btnAddNewBook";
             this.btnAddNewBook.Size = new System.Drawing.Size(124, 43);
             this.btnAddNewBook.TabIndex = 7;
@@ -329,6 +328,43 @@
             this.tabPage4.Text = "Loans";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // groupBoxBookInfo
+            // 
+            this.groupBoxBookInfo.Controls.Add(this.labelAuthor);
+            this.groupBoxBookInfo.Controls.Add(this.comboBoxAuthor);
+            this.groupBoxBookInfo.Controls.Add(this.textBoxDescription);
+            this.groupBoxBookInfo.Controls.Add(this.labelDescription);
+            this.groupBoxBookInfo.Controls.Add(this.textBoxTitle);
+            this.groupBoxBookInfo.Controls.Add(this.labelTitle);
+            this.groupBoxBookInfo.Controls.Add(this.labelISBN);
+            this.groupBoxBookInfo.Controls.Add(this.textBoxISBN);
+            this.groupBoxBookInfo.Controls.Add(this.btnAddNewBook);
+            this.groupBoxBookInfo.Location = new System.Drawing.Point(423, 29);
+            this.groupBoxBookInfo.Name = "groupBoxBookInfo";
+            this.groupBoxBookInfo.Size = new System.Drawing.Size(200, 318);
+            this.groupBoxBookInfo.TabIndex = 16;
+            this.groupBoxBookInfo.TabStop = false;
+            this.groupBoxBookInfo.Text = "Book information";
+            // 
+            // comboBoxBooksByAuthor
+            // 
+            this.comboBoxBooksByAuthor.FormattingEnabled = true;
+            this.comboBoxBooksByAuthor.Location = new System.Drawing.Point(258, 372);
+            this.comboBoxBooksByAuthor.Name = "comboBoxBooksByAuthor";
+            this.comboBoxBooksByAuthor.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxBooksByAuthor.TabIndex = 17;
+            this.comboBoxBooksByAuthor.SelectedIndexChanged += new System.EventHandler(this.comboBoxBooksByAuthor_SelectedIndexChanged);
+            // 
+            // btnBooksByAuthor
+            // 
+            this.btnBooksByAuthor.Location = new System.Drawing.Point(258, 399);
+            this.btnBooksByAuthor.Name = "btnBooksByAuthor";
+            this.btnBooksByAuthor.Size = new System.Drawing.Size(121, 38);
+            this.btnBooksByAuthor.TabIndex = 18;
+            this.btnBooksByAuthor.Text = "Show books by author";
+            this.btnBooksByAuthor.UseVisualStyleBackColor = true;
+            this.btnBooksByAuthor.Click += new System.EventHandler(this.btnBooksByAuthor_Click);
+            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,6 +381,8 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBoxBookInfo.ResumeLayout(false);
+            this.groupBoxBookInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -378,6 +416,9 @@
         private System.Windows.Forms.ListBox lbMembers;
         private System.Windows.Forms.TextBox textBoxMemberPersonalID;
         private System.Windows.Forms.TextBox textBoxMemberName;
+        private System.Windows.Forms.Button btnBooksByAuthor;
+        private System.Windows.Forms.ComboBox comboBoxBooksByAuthor;
+        private System.Windows.Forms.GroupBox groupBoxBookInfo;
     }
 }
 
