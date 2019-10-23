@@ -40,14 +40,20 @@
             this.textBoxISBN = new System.Windows.Forms.TextBox();
             this.btnAddNewBook = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.labelAuthorName = new System.Windows.Forms.Label();
+            this.btnAddNewAuthor = new System.Windows.Forms.Button();
+            this.lbAuthors = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.lbAuthors = new System.Windows.Forms.ListBox();
-            this.btnAddNewAuthor = new System.Windows.Forms.Button();
-            this.labelAuthorName = new System.Windows.Forms.Label();
+            this.lbMembers = new System.Windows.Forms.ListBox();
+            this.labelPersonalID = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.textBoxMemberName = new System.Windows.Forms.TextBox();
+            this.textBoxMemberPersonalID = new System.Windows.Forms.TextBox();
             this.tabControlLibrary.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbBooks
@@ -89,7 +95,7 @@
             // 
             // BtnAddNewMember
             // 
-            this.BtnAddNewMember.Location = new System.Drawing.Point(320, 593);
+            this.BtnAddNewMember.Location = new System.Drawing.Point(400, 224);
             this.BtnAddNewMember.Name = "BtnAddNewMember";
             this.BtnAddNewMember.Size = new System.Drawing.Size(124, 43);
             this.BtnAddNewMember.TabIndex = 5;
@@ -226,33 +232,14 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // tabPage3
+            // labelAuthorName
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1036, 484);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1036, 484);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // lbAuthors
-            // 
-            this.lbAuthors.FormattingEnabled = true;
-            this.lbAuthors.Location = new System.Drawing.Point(40, 25);
-            this.lbAuthors.Name = "lbAuthors";
-            this.lbAuthors.Size = new System.Drawing.Size(261, 342);
-            this.lbAuthors.TabIndex = 5;
+            this.labelAuthorName.AutoSize = true;
+            this.labelAuthorName.Location = new System.Drawing.Point(328, 114);
+            this.labelAuthorName.Name = "labelAuthorName";
+            this.labelAuthorName.Size = new System.Drawing.Size(35, 13);
+            this.labelAuthorName.TabIndex = 9;
+            this.labelAuthorName.Text = "Name";
             // 
             // btnAddNewAuthor
             // 
@@ -264,21 +251,89 @@
             this.btnAddNewAuthor.UseVisualStyleBackColor = true;
             this.btnAddNewAuthor.Click += new System.EventHandler(this.btnAddNewAuthor_Click);
             // 
-            // labelAuthorName
+            // lbAuthors
             // 
-            this.labelAuthorName.AutoSize = true;
-            this.labelAuthorName.Location = new System.Drawing.Point(328, 114);
-            this.labelAuthorName.Name = "labelAuthorName";
-            this.labelAuthorName.Size = new System.Drawing.Size(35, 13);
-            this.labelAuthorName.TabIndex = 9;
-            this.labelAuthorName.Text = "Name";
+            this.lbAuthors.FormattingEnabled = true;
+            this.lbAuthors.Location = new System.Drawing.Point(40, 25);
+            this.lbAuthors.Name = "lbAuthors";
+            this.lbAuthors.Size = new System.Drawing.Size(261, 342);
+            this.lbAuthors.TabIndex = 5;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.textBoxMemberPersonalID);
+            this.tabPage3.Controls.Add(this.textBoxMemberName);
+            this.tabPage3.Controls.Add(this.labelName);
+            this.tabPage3.Controls.Add(this.labelPersonalID);
+            this.tabPage3.Controls.Add(this.lbMembers);
+            this.tabPage3.Controls.Add(this.BtnAddNewMember);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(795, 484);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(795, 484);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // lbMembers
+            // 
+            this.lbMembers.FormattingEnabled = true;
+            this.lbMembers.Location = new System.Drawing.Point(61, 75);
+            this.lbMembers.Name = "lbMembers";
+            this.lbMembers.Size = new System.Drawing.Size(212, 290);
+            this.lbMembers.TabIndex = 6;
+            this.lbMembers.SelectedIndexChanged += new System.EventHandler(this.lbMembers_SelectedIndexChanged);
+            // 
+            // labelPersonalID
+            // 
+            this.labelPersonalID.AutoSize = true;
+            this.labelPersonalID.Location = new System.Drawing.Point(400, 112);
+            this.labelPersonalID.Name = "labelPersonalID";
+            this.labelPersonalID.Size = new System.Drawing.Size(62, 13);
+            this.labelPersonalID.TabIndex = 8;
+            this.labelPersonalID.Text = "Personal ID";
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(400, 167);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(35, 13);
+            this.labelName.TabIndex = 10;
+            this.labelName.Text = "Name";
+            // 
+            // textBoxMemberName
+            // 
+            this.textBoxMemberName.Location = new System.Drawing.Point(400, 183);
+            this.textBoxMemberName.Name = "textBoxMemberName";
+            this.textBoxMemberName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMemberName.TabIndex = 11;
+            this.textBoxMemberName.TextChanged += new System.EventHandler(this.textBoxMemberName_TextChanged);
+            // 
+            // textBoxMemberPersonalID
+            // 
+            this.textBoxMemberPersonalID.Location = new System.Drawing.Point(400, 129);
+            this.textBoxMemberPersonalID.Name = "textBoxMemberPersonalID";
+            this.textBoxMemberPersonalID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMemberPersonalID.TabIndex = 12;
+            this.textBoxMemberPersonalID.TextChanged += new System.EventHandler(this.textBoxMemberPersonalID_TextChanged);
             // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 730);
-            this.Controls.Add(this.BtnAddNewMember);
             this.Controls.Add(this.tabControlLibrary);
             this.Name = "LibraryForm";
             this.Text = "Library";
@@ -288,6 +343,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -316,6 +373,11 @@
         private System.Windows.Forms.Label labelAuthorName;
         private System.Windows.Forms.Button btnAddNewAuthor;
         private System.Windows.Forms.ListBox lbAuthors;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelPersonalID;
+        private System.Windows.Forms.ListBox lbMembers;
+        private System.Windows.Forms.TextBox textBoxMemberPersonalID;
+        private System.Windows.Forms.TextBox textBoxMemberName;
     }
 }
 
