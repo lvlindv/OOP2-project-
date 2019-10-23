@@ -32,12 +32,6 @@ namespace Library.Services
             // TODO: Raise the Updated event.
         }
 
-        public void Remove(Book book)
-        {
-            bookRepository.Remove(book);
-            // TODO: Raise the Updated event.
-        }
-
         public IEnumerable<Book> GetAllThatContainsInTitle(string a)
         {
             return bookRepository.All().Where(b => b.Title.Contains(a));
