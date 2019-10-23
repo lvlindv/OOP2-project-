@@ -39,6 +39,7 @@ namespace Library
             AuthorTabShowAllAuthors(authorService.All());
             BookTabShowAllAuthors(authorService.All());
             MemberTabShowAllMembers(memberService.All());
+            BookTabBooksByAuthor(authorService.All());
 
         }
 
@@ -131,7 +132,6 @@ namespace Library
                 var author = (Author)comboBoxAuthor.SelectedItem;
                 Book book = new Book(textBoxISBN.Text, textBoxTitle.Text, textBoxDescription.Text, author);
                 BookCopy bookCopy = new BookCopy(book, 10);
-                bookCopyService.Add(bookCopy);
                 book.BookCopies.Add(bookCopy);
                 author.Books.Add(book);
                 bookService.Add(book);
@@ -177,6 +177,7 @@ namespace Library
                 textBoxAuthorName.Clear();
                 AuthorTabShowAllAuthors(authorService.All());
                 BookTabShowAllAuthors(authorService.All());
+                BookTabBooksByAuthor(authorService.All());
             }
         }
 
@@ -235,5 +236,38 @@ namespace Library
         {
 
         }
+
+
+        //
+        // List books by author
+        //
+
+        public void BookTabBooksByAuthor(IEnumerable<Author> authors)
+        {
+            comboBoxBooksByAuthor.Items.Clear();
+            foreach (Author author in authors)
+            {
+                comboBoxBooksByAuthor.Items.Add(author);
+            }
+        }
+
+        private void comboBoxBooksByAuthor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBooksByAuthor_Click(object sender, EventArgs e)
+        {
+            var author = (Author)comboBoxBooksByAuthor.SelectedItem;
+
+            lbBooks.Items.Clear();
+            foreach (Book book in bookService.GetAllBooksByAuthor(author))
+            {
+                lbBooks.Items.Add(book);
+            }
+
+
+        }
+
     }
 }

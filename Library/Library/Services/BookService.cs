@@ -37,6 +37,11 @@ namespace Library.Services
             return bookRepository.All().Where(b => b.Title.Contains(a));
         }
 
+        public IEnumerable<Book> GetAllBooksByAuthor(Author author)
+        {
+            return bookRepository.All().Where(b => b.Author == author); 
+        }
+
         /// <summary>
         /// The Edit method makes sure that the given Book object is saved to the database and raises the Updated() event.
         /// </summary>
