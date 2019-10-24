@@ -20,6 +20,7 @@ namespace Library
         BookCopyService bookCopyService;
         AuthorService authorService;
         MemberService memberService;
+        LoanService loanService;
 
         public LibraryForm()
         {
@@ -35,6 +36,7 @@ namespace Library
             this.bookCopyService = new BookCopyService(repFactory);
             this.authorService = new AuthorService(repFactory);
             this.memberService = new MemberService(repFactory);
+            this.loanService = new LoanService(repFactory);
 
             AuthorTabShowAllAuthors(authorService.All());
             BookTabShowAllAuthors(authorService.All());
@@ -287,6 +289,23 @@ namespace Library
             bookCopyService.Add(copy);
             ShowAllBooks(bookService.All());
         }
+
+
+        ///
+        /// ADD NEW LOAN
+        /// 
+        private void btnAddNewLoan_Click(object sender, EventArgs e)
+        {
+            Loan loan = new Loan(/*timeOfLoan*/, /*bookCopy*/, /*member*/);
+            loanService.Add(loan);
+            //Uppdatera listbox med current loans
+            
+        }
+
+        //Knapp för att returnera böcker/lån
+
+ 
+
 
     }
 }

@@ -457,6 +457,7 @@
             this.btnAddNewLoan.TabIndex = 0;
             this.btnAddNewLoan.Text = "Add Loan";
             this.btnAddNewLoan.UseVisualStyleBackColor = true;
+            this.btnAddNewLoan.Click += new System.EventHandler(this.btnAddNewLoan_Click);
             // 
             // LibraryForm
             // 
