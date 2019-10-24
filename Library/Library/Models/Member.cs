@@ -45,6 +45,10 @@ namespace Library.Models
             this.Loans = new List<Loan>();
         }
 
+        /// <summary>
+        /// Useful for adding member objects directly to a ListBox.
+        /// </summary>
+        /// <returns>Member object</returns>
         public override string ToString()
         {
             return String.Format("{0} -- {1} -- {2}", this.PersonalId, this.Name, this.DateOfMembership);
