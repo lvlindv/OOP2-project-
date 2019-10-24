@@ -59,6 +59,7 @@
             this.labelPersonalID = new System.Windows.Forms.Label();
             this.lbMembers = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnAddNewLoan = new System.Windows.Forms.Button();
             this.tabControlLibrary.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,6 +67,7 @@
             this.groupBoxBookInfo.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbBooks
@@ -438,6 +440,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnAddNewLoan);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -445,6 +448,15 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Loans";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnAddNewLoan
+            // 
+            this.btnAddNewLoan.Location = new System.Drawing.Point(459, 357);
+            this.btnAddNewLoan.Name = "btnAddNewLoan";
+            this.btnAddNewLoan.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNewLoan.TabIndex = 0;
+            this.btnAddNewLoan.Text = "Add Loan";
+            this.btnAddNewLoan.UseVisualStyleBackColor = true;
             // 
             // LibraryForm
             // 
@@ -467,6 +479,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -509,6 +522,7 @@
         private System.Windows.Forms.ComboBox comboBoxBook;
         private System.Windows.Forms.Button btnAddNewCopy;
         private System.Windows.Forms.Label labelCondition;
+        private System.Windows.Forms.Button btnAddNewLoan;
     }
 }
 
