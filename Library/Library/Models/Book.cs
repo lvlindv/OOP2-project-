@@ -27,10 +27,10 @@ namespace Library.Models {
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="ISBN"></param>
-        /// <param name="Title"></param>
-        /// <param name="Description"></param>
-        /// <param name="Author"></param>
+        /// <param name="ISBN">The identification number of the book</param>
+        /// <param name="Title">The title of the book</param>
+        /// <param name="Description">A summary of the book plot</param>
+        /// <param name="Author">The books author</param>
         public Book(string ISBN, string Title, string Description, Author Author)
         {
             this.ISBN = ISBN;

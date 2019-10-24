@@ -23,6 +23,7 @@ namespace Library.Models
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="name">The name og the author</param>
         public Author(string name)
         {
             this.Name = name;
