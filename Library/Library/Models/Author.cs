@@ -23,19 +23,26 @@ namespace Library.Models
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="name">The name og the author</param>
         public Author(string name)
         {
-            //Set values of properties
             this.Name = name;
             this.Books  = new List<Book>();
         }
 
+        /// <summary>
+        /// Empty Constructor
+        /// </summary>
         public Author()
         {
             this.Books = new List<Book>();
 
         }
 
+        /// <summary>
+        /// Useful for adding authour objects directly to a ListBox.
+        /// </summary>
+        /// <returns> Author object </returns>
         public override string ToString()
         {
             return String.Format("{0}", this.Name);

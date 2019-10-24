@@ -29,6 +29,9 @@ namespace Library.Models
             this.Condition = Condition;
         }
 
+        /// <summary>
+        /// Empty Constructor
+        /// </summary>
         public BookCopy()
         {
 

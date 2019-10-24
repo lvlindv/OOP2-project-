@@ -26,18 +26,32 @@ namespace Library.Models
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="timeOfLoan">The date the loan was created</param>
+        /// <param name="bookCopy">One specifik bookcopy</param>
+        /// <param name="member">The member of the loan</param>
         public Loan(DateTime timeOfLoan, BookCopy bookCopy, Member member)
         {
-            //Set values of properties
             this.TimeOfLoan = timeOfLoan;
             this.DueDate = timeOfLoan.AddDays(15);
             this.BookCopy = bookCopy;
             this.Member = member;
         }
 
+        /// <summary>
+        /// Empty Constructor
+        /// </summary>
         public Loan()
         {
 
+        }
+
+        /// <summary>
+        /// Useful for adding Loan objects directly to a ListBox.
+        /// </summary>
+        /// <returns>Loan object</returns>
+        public override string ToString()
+        {
+            return String.Format("{0} -- {1} -- {2} -- {3}", this.Member, this.TimeOfLoan, this.DueDate, this.BookCopy);
         }
     }
 }

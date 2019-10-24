@@ -25,9 +25,11 @@ namespace Library.Models
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="personalId">The members personal Id number</param>
+        /// <param name="name">The name of the member</param>
+        /// <param name="dateofMembership">The date the member was created</param>
         public Member(int personalId, string name, DateTime dateofMembership)
         {
-            //Set values of properties
             this.PersonalId = personalId;
             this.Name = name;
             this.DateOfMembership = dateofMembership;
@@ -43,6 +45,10 @@ namespace Library.Models
             this.Loans = new List<Loan>();
         }
 
+        /// <summary>
+        /// Useful for adding member objects directly to a ListBox.
+        /// </summary>
+        /// <returns>Member object</returns>
         public override string ToString()
         {
             return String.Format("{0} -- {1} -- {2}", this.PersonalId, this.Name, this.DateOfMembership);
