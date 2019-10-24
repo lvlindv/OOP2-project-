@@ -132,8 +132,6 @@ namespace Library
             {
                 var author = (Author)comboBoxAuthor.SelectedItem;
                 Book book = new Book(textBoxISBN.Text, textBoxTitle.Text, textBoxDescription.Text, author);
-                BookCopy bookCopy = new BookCopy(book, 10);
-                book.BookCopies.Add(bookCopy);
                 author.Books.Add(book);
                 bookService.Add(book);
 
