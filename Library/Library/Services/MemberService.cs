@@ -18,7 +18,7 @@ namespace Library.Services
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="rFactory"></param>
+        /// <param name="rFactory">A repository factory, so the service can create its own repository.</param>
         public MemberService(RepositoryFactory rFactory)
         {
             this.memberRepository = rFactory.CreateMemberRepository();
