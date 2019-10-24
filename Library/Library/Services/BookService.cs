@@ -45,26 +45,19 @@ namespace Library.Services
             // TODO: Raise the Updated event.
         }
 
-
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="a"></param>
-        /// <returns></returns>
-        public IEnumerable<Book> GetAllThatContainsInTitle(string a)
-        {
-            return bookRepository.All().Where(b => b.Title.Contains(a));
-        }
-
-
-        /// <summary>
-        /// Method to get all books by a specifik author
+        /// Method to get all books by a specific author
         /// </summary>
         /// <param name="author">Takes an author object</param>
         /// <returns>A list of books</returns>
         public IEnumerable<Book> GetAllBooksByAuthor(Author author)
         {
             return bookRepository.All().Where(b => b.Author == author); 
+        }
+
+        public IEnumerable<Book> GetAllAvailableBooks()
+        {
+            return bookRepository.All().Where( b => )
         }
 
         /// <summary>

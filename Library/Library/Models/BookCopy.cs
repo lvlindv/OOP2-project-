@@ -20,6 +20,8 @@ namespace Library.Models
         public virtual Book Book { get; set; }
         public int Condition { get; set; } //Can only be 1-10, implement rule
 
+        //enum Availability { Available, Unavailable, Overdue };
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -27,6 +29,7 @@ namespace Library.Models
         {
             this.Book = Book;
             this.Condition = Condition;
+            //string availability = (string)Availability.Available;
         }
 
         /// <summary>
