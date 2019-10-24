@@ -51,7 +51,7 @@ namespace Library.Models
         /// <returns>Member object</returns>
         public override string ToString()
         {
-            return String.Format("{0} -- {1} -- {2}", this.PersonalId, this.Name, this.DateOfMembership);
+            return String.Format("{0} - {1} - Member since: {2}", this.PersonalId, this.Name, this.DateOfMembership.ToString("yyyy-MM-dd"));
         }
     }
 }
