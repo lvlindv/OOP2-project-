@@ -51,7 +51,7 @@ namespace Library.Models
         /// <returns>Loan object</returns>
         public override string ToString()
         {
-            return String.Format("{0} -- {1} -- {2} -- {3}", this.Member, this.TimeOfLoan, this.DueDate, this.BookCopy);
+            return String.Format("{0} {1} -- {2} -- {3} -- {4}", this.Member.MemberId, this.Member.Name, this.TimeOfLoan, this.DueDate, this.BookCopy);
         }
     }
 }
