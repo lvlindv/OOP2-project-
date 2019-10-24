@@ -26,9 +26,9 @@ namespace Library.Models
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="timeOfLoan"> set values of properties</param>
-        /// <param name="bookCopy"></param>
-        /// <param name="member"></param>
+        /// <param name="timeOfLoan">The date the loan was created</param>
+        /// <param name="bookCopy">One specifik bookcopy</param>
+        /// <param name="member">The member of the loan</param>
         public Loan(DateTime timeOfLoan, BookCopy bookCopy, Member member)
         {
             this.TimeOfLoan = timeOfLoan;
@@ -43,6 +43,15 @@ namespace Library.Models
         public Loan()
         {
 
+        }
+
+        /// <summary>
+        /// Useful for adding Loan objects directly to a ListBox.
+        /// </summary>
+        /// <returns>Loan object</returns>
+        public override string ToString()
+        {
+            return String.Format("{0} -- {1} -- {2} -- {3}", this.Member, this.TimeOfLoan, this.DueDate, this.BookCopy);
         }
     }
 }
