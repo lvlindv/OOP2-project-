@@ -41,6 +41,33 @@ namespace Library.Services
         }
 
         /// <summary>
+        /// Method to get all current loans
+        /// </summary>
+        /// <returns>A list of loans</returns>
+        public IEnumerable<Loan> GetAllCurrentLoans()
+        {
+            return loanRepository.All().Where(l => l.TimeOfReturn == null);
+        }
+
+        /// <summary>
+        /// Method to get all previous/returned loans
+        /// </summary>
+        /// <returns>A list of loans</returns>
+        public IEnumerable<Loan> GetAllPreviousLoans()
+        {
+            return loanRepository.All().Where(l => l.TimeOfReturn != null);
+        }
+
+        /// <summary>
+        /// Method to get all overdue loans
+        /// </summary>
+        /// <returns>A list of loans</returns>
+        public IEnumerable<Loan> GetAllOverdueLoans()
+        {
+            return loanRepository.All().Where(l => l.TimeOfReturn == null && l.DueDate > DateTime.Today);
+        }
+
+        /// <summary>
         /// The Edit method makes sure that the given Book object is saved to the database and raises the Updated() event.
         /// </summary>
         /// <param name="b"></param>
