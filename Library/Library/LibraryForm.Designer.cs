@@ -30,6 +30,15 @@
             this.BtnAddNewMember = new System.Windows.Forms.Button();
             this.tabControlLibrary = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelCondition = new System.Windows.Forms.Label();
+            this.numericUpDownCopies = new System.Windows.Forms.NumericUpDown();
+            this.labelBook = new System.Windows.Forms.Label();
+            this.comboBoxBook = new System.Windows.Forms.ComboBox();
+            this.btnAddNewCopy = new System.Windows.Forms.Button();
+            this.btnBooksByAuthor = new System.Windows.Forms.Button();
+            this.comboBoxBooksByAuthor = new System.Windows.Forms.ComboBox();
+            this.groupBoxBookInfo = new System.Windows.Forms.GroupBox();
             this.labelAuthor = new System.Windows.Forms.Label();
             this.comboBoxAuthor = new System.Windows.Forms.ComboBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
@@ -50,14 +59,13 @@
             this.labelPersonalID = new System.Windows.Forms.Label();
             this.lbMembers = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBoxBookInfo = new System.Windows.Forms.GroupBox();
-            this.comboBoxBooksByAuthor = new System.Windows.Forms.ComboBox();
-            this.btnBooksByAuthor = new System.Windows.Forms.Button();
             this.tabControlLibrary.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).BeginInit();
+            this.groupBoxBookInfo.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBoxBookInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbBooks
@@ -116,11 +124,12 @@
             this.tabControlLibrary.Location = new System.Drawing.Point(39, 21);
             this.tabControlLibrary.Name = "tabControlLibrary";
             this.tabControlLibrary.SelectedIndex = 0;
-            this.tabControlLibrary.Size = new System.Drawing.Size(803, 510);
+            this.tabControlLibrary.Size = new System.Drawing.Size(853, 510);
             this.tabControlLibrary.TabIndex = 6;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.btnBooksByAuthor);
             this.tabPage1.Controls.Add(this.comboBoxBooksByAuthor);
             this.tabPage1.Controls.Add(this.groupBoxBookInfo);
@@ -130,11 +139,120 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(795, 484);
+            this.tabPage1.Size = new System.Drawing.Size(845, 484);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Books";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelCondition);
+            this.groupBox1.Controls.Add(this.numericUpDownCopies);
+            this.groupBox1.Controls.Add(this.labelBook);
+            this.groupBox1.Controls.Add(this.comboBoxBook);
+            this.groupBox1.Controls.Add(this.btnAddNewCopy);
+            this.groupBox1.Location = new System.Drawing.Point(616, 29);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(173, 318);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Copy information";
+            // 
+            // labelCondition
+            // 
+            this.labelCondition.AutoSize = true;
+            this.labelCondition.Location = new System.Drawing.Point(17, 185);
+            this.labelCondition.Name = "labelCondition";
+            this.labelCondition.Size = new System.Drawing.Size(51, 13);
+            this.labelCondition.TabIndex = 17;
+            this.labelCondition.Text = "Condition";
+            // 
+            // numericUpDownCopies
+            // 
+            this.numericUpDownCopies.Location = new System.Drawing.Point(16, 201);
+            this.numericUpDownCopies.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownCopies.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownCopies.Name = "numericUpDownCopies";
+            this.numericUpDownCopies.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownCopies.TabIndex = 16;
+            this.numericUpDownCopies.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // labelBook
+            // 
+            this.labelBook.AutoSize = true;
+            this.labelBook.Location = new System.Drawing.Point(17, 125);
+            this.labelBook.Name = "labelBook";
+            this.labelBook.Size = new System.Drawing.Size(32, 13);
+            this.labelBook.TabIndex = 15;
+            this.labelBook.Text = "Book";
+            // 
+            // comboBoxBook
+            // 
+            this.comboBoxBook.FormattingEnabled = true;
+            this.comboBoxBook.Location = new System.Drawing.Point(16, 141);
+            this.comboBoxBook.Name = "comboBoxBook";
+            this.comboBoxBook.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxBook.TabIndex = 14;
+            // 
+            // btnAddNewCopy
+            // 
+            this.btnAddNewCopy.Location = new System.Drawing.Point(16, 241);
+            this.btnAddNewCopy.Name = "btnAddNewCopy";
+            this.btnAddNewCopy.Size = new System.Drawing.Size(124, 43);
+            this.btnAddNewCopy.TabIndex = 7;
+            this.btnAddNewCopy.Text = "Add new copy";
+            this.btnAddNewCopy.UseVisualStyleBackColor = true;
+            this.btnAddNewCopy.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnBooksByAuthor
+            // 
+            this.btnBooksByAuthor.Location = new System.Drawing.Point(258, 399);
+            this.btnBooksByAuthor.Name = "btnBooksByAuthor";
+            this.btnBooksByAuthor.Size = new System.Drawing.Size(121, 38);
+            this.btnBooksByAuthor.TabIndex = 18;
+            this.btnBooksByAuthor.Text = "Show books by author";
+            this.btnBooksByAuthor.UseVisualStyleBackColor = true;
+            this.btnBooksByAuthor.Click += new System.EventHandler(this.btnBooksByAuthor_Click);
+            // 
+            // comboBoxBooksByAuthor
+            // 
+            this.comboBoxBooksByAuthor.FormattingEnabled = true;
+            this.comboBoxBooksByAuthor.Location = new System.Drawing.Point(258, 372);
+            this.comboBoxBooksByAuthor.Name = "comboBoxBooksByAuthor";
+            this.comboBoxBooksByAuthor.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxBooksByAuthor.TabIndex = 17;
+            this.comboBoxBooksByAuthor.SelectedIndexChanged += new System.EventHandler(this.comboBoxBooksByAuthor_SelectedIndexChanged);
+            // 
+            // groupBoxBookInfo
+            // 
+            this.groupBoxBookInfo.Controls.Add(this.labelAuthor);
+            this.groupBoxBookInfo.Controls.Add(this.comboBoxAuthor);
+            this.groupBoxBookInfo.Controls.Add(this.textBoxDescription);
+            this.groupBoxBookInfo.Controls.Add(this.labelDescription);
+            this.groupBoxBookInfo.Controls.Add(this.textBoxTitle);
+            this.groupBoxBookInfo.Controls.Add(this.labelTitle);
+            this.groupBoxBookInfo.Controls.Add(this.labelISBN);
+            this.groupBoxBookInfo.Controls.Add(this.textBoxISBN);
+            this.groupBoxBookInfo.Controls.Add(this.btnAddNewBook);
+            this.groupBoxBookInfo.Location = new System.Drawing.Point(423, 29);
+            this.groupBoxBookInfo.Name = "groupBoxBookInfo";
+            this.groupBoxBookInfo.Size = new System.Drawing.Size(173, 318);
+            this.groupBoxBookInfo.TabIndex = 16;
+            this.groupBoxBookInfo.TabStop = false;
+            this.groupBoxBookInfo.Text = "Book information";
             // 
             // labelAuthor
             // 
@@ -225,7 +343,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(795, 484);
+            this.tabPage2.Size = new System.Drawing.Size(845, 484);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Authors";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -269,7 +387,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(795, 484);
+            this.tabPage3.Size = new System.Drawing.Size(845, 484);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Members";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -323,47 +441,10 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(795, 484);
+            this.tabPage4.Size = new System.Drawing.Size(845, 484);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Loans";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxBookInfo
-            // 
-            this.groupBoxBookInfo.Controls.Add(this.labelAuthor);
-            this.groupBoxBookInfo.Controls.Add(this.comboBoxAuthor);
-            this.groupBoxBookInfo.Controls.Add(this.textBoxDescription);
-            this.groupBoxBookInfo.Controls.Add(this.labelDescription);
-            this.groupBoxBookInfo.Controls.Add(this.textBoxTitle);
-            this.groupBoxBookInfo.Controls.Add(this.labelTitle);
-            this.groupBoxBookInfo.Controls.Add(this.labelISBN);
-            this.groupBoxBookInfo.Controls.Add(this.textBoxISBN);
-            this.groupBoxBookInfo.Controls.Add(this.btnAddNewBook);
-            this.groupBoxBookInfo.Location = new System.Drawing.Point(423, 29);
-            this.groupBoxBookInfo.Name = "groupBoxBookInfo";
-            this.groupBoxBookInfo.Size = new System.Drawing.Size(200, 318);
-            this.groupBoxBookInfo.TabIndex = 16;
-            this.groupBoxBookInfo.TabStop = false;
-            this.groupBoxBookInfo.Text = "Book information";
-            // 
-            // comboBoxBooksByAuthor
-            // 
-            this.comboBoxBooksByAuthor.FormattingEnabled = true;
-            this.comboBoxBooksByAuthor.Location = new System.Drawing.Point(258, 372);
-            this.comboBoxBooksByAuthor.Name = "comboBoxBooksByAuthor";
-            this.comboBoxBooksByAuthor.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxBooksByAuthor.TabIndex = 17;
-            this.comboBoxBooksByAuthor.SelectedIndexChanged += new System.EventHandler(this.comboBoxBooksByAuthor_SelectedIndexChanged);
-            // 
-            // btnBooksByAuthor
-            // 
-            this.btnBooksByAuthor.Location = new System.Drawing.Point(258, 399);
-            this.btnBooksByAuthor.Name = "btnBooksByAuthor";
-            this.btnBooksByAuthor.Size = new System.Drawing.Size(121, 38);
-            this.btnBooksByAuthor.TabIndex = 18;
-            this.btnBooksByAuthor.Text = "Show books by author";
-            this.btnBooksByAuthor.UseVisualStyleBackColor = true;
-            this.btnBooksByAuthor.Click += new System.EventHandler(this.btnBooksByAuthor_Click);
             // 
             // LibraryForm
             // 
@@ -377,12 +458,15 @@
             this.tabControlLibrary.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).EndInit();
+            this.groupBoxBookInfo.ResumeLayout(false);
+            this.groupBoxBookInfo.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.groupBoxBookInfo.ResumeLayout(false);
-            this.groupBoxBookInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -419,6 +503,12 @@
         private System.Windows.Forms.Button btnBooksByAuthor;
         private System.Windows.Forms.ComboBox comboBoxBooksByAuthor;
         private System.Windows.Forms.GroupBox groupBoxBookInfo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDownCopies;
+        private System.Windows.Forms.Label labelBook;
+        private System.Windows.Forms.ComboBox comboBoxBook;
+        private System.Windows.Forms.Button btnAddNewCopy;
+        private System.Windows.Forms.Label labelCondition;
     }
 }
 

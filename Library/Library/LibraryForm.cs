@@ -40,6 +40,7 @@ namespace Library
             BookTabShowAllAuthors(authorService.All());
             MemberTabShowAllMembers(memberService.All());
             BookTabBooksByAuthor(authorService.All());
+            ShowAllBooksInComboBox(bookService.All());
 
         }
 
@@ -141,6 +142,7 @@ namespace Library
                 textBoxTitle.Clear();
                 textBoxDescription.Clear();
                 ShowAllBooks(bookService.All());
+                ShowAllBooksInComboBox(bookService.All());
             }
         }
 
@@ -265,8 +267,27 @@ namespace Library
             {
                 lbBooks.Items.Add(book);
             }
+        }
 
+        ///
+        /// ADD NEW COPIES
+        /// 
+        public void ShowAllBooksInComboBox(IEnumerable<Book> books)
+        {
+            comboBoxBook.Items.Clear();
+            foreach (Book book in books)
+            {
+                comboBoxBook.Items.Add(book);
+            }
+        }
 
+        //Add new Copy-button
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var book = (Book)comboBoxBook.SelectedItem;
+            BookCopy copy = new BookCopy(book, Convert.ToInt32(numericUpDownCopies.Value));
+            bookCopyService.Add(copy);
+            ShowAllBooks(bookService.All());
         }
 
     }
