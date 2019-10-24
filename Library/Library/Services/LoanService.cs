@@ -68,6 +68,16 @@ namespace Library.Services
         }
 
         /// <summary>
+        /// Method to get all loans by member
+        /// </summary>
+        /// <param name="member">A specific member in Member object</param>
+        /// <returns>A list of loans by a specific member</returns>
+        public IEnumerable<Loan> GetAllLoansByMember(Member member)
+        {
+            return loanRepository.All().Where(m => m.Member == member);
+        }
+
+        /// <summary>
         /// The Edit method makes sure that the given Book object is saved to the database and raises the Updated() event.
         /// </summary>
         /// <param name="b"></param>
