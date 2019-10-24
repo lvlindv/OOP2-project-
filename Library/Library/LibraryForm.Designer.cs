@@ -60,6 +60,9 @@
             this.lbMembers = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btnAddNewLoan = new System.Windows.Forms.Button();
+            this.lbCurrentLoans = new System.Windows.Forms.ListBox();
+            this.lbPreviousLoans = new System.Windows.Forms.ListBox();
+            this.lbOverdueLoans = new System.Windows.Forms.ListBox();
             this.tabControlLibrary.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -440,6 +443,9 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.lbOverdueLoans);
+            this.tabPage4.Controls.Add(this.lbPreviousLoans);
+            this.tabPage4.Controls.Add(this.lbCurrentLoans);
             this.tabPage4.Controls.Add(this.btnAddNewLoan);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -451,13 +457,37 @@
             // 
             // btnAddNewLoan
             // 
-            this.btnAddNewLoan.Location = new System.Drawing.Point(459, 357);
+            this.btnAddNewLoan.Location = new System.Drawing.Point(261, 414);
             this.btnAddNewLoan.Name = "btnAddNewLoan";
             this.btnAddNewLoan.Size = new System.Drawing.Size(75, 23);
             this.btnAddNewLoan.TabIndex = 0;
             this.btnAddNewLoan.Text = "Add Loan";
             this.btnAddNewLoan.UseVisualStyleBackColor = true;
             this.btnAddNewLoan.Click += new System.EventHandler(this.btnAddNewLoan_Click);
+            // 
+            // lbCurrentLoans
+            // 
+            this.lbCurrentLoans.FormattingEnabled = true;
+            this.lbCurrentLoans.Location = new System.Drawing.Point(43, 54);
+            this.lbCurrentLoans.Name = "lbCurrentLoans";
+            this.lbCurrentLoans.Size = new System.Drawing.Size(211, 303);
+            this.lbCurrentLoans.TabIndex = 1;
+            // 
+            // lbPreviousLoans
+            // 
+            this.lbPreviousLoans.FormattingEnabled = true;
+            this.lbPreviousLoans.Location = new System.Drawing.Point(317, 54);
+            this.lbPreviousLoans.Name = "lbPreviousLoans";
+            this.lbPreviousLoans.Size = new System.Drawing.Size(182, 316);
+            this.lbPreviousLoans.TabIndex = 2;
+            // 
+            // lbOverdueLoans
+            // 
+            this.lbOverdueLoans.FormattingEnabled = true;
+            this.lbOverdueLoans.Location = new System.Drawing.Point(593, 65);
+            this.lbOverdueLoans.Name = "lbOverdueLoans";
+            this.lbOverdueLoans.Size = new System.Drawing.Size(195, 290);
+            this.lbOverdueLoans.TabIndex = 3;
             // 
             // LibraryForm
             // 
@@ -524,6 +554,9 @@
         private System.Windows.Forms.Button btnAddNewCopy;
         private System.Windows.Forms.Label labelCondition;
         private System.Windows.Forms.Button btnAddNewLoan;
+        private System.Windows.Forms.ListBox lbOverdueLoans;
+        private System.Windows.Forms.ListBox lbPreviousLoans;
+        private System.Windows.Forms.ListBox lbCurrentLoans;
     }
 }
 
