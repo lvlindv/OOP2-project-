@@ -15,28 +15,53 @@ namespace Library.Services
         /// </summary>
         BookRepository bookRepository;
 
-        /// <param name="rFactory">A repository factory, so the service can create its own repository.</param>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rFactory">A repository factory, so the service can create its own repository</param>
         public BookService(RepositoryFactory rFactory)
         {
             this.bookRepository = rFactory.CreateBookRepository();
         }
 
+
+        /// <summary>
+        /// Method to get all books
+        /// </summary>
+        /// <returns>A list of books</returns>
         public IEnumerable<Book> All()
         {
             return bookRepository.All();
         }
 
+
+        /// <summary>
+        /// Method to add books to db
+        /// </summary>
+        /// <param name="book"> Takes a book object</param>
         public void Add(Book book)
         {
             bookRepository.Add(book);
             // TODO: Raise the Updated event.
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public IEnumerable<Book> GetAllThatContainsInTitle(string a)
         {
             return bookRepository.All().Where(b => b.Title.Contains(a));
         }
 
+
+        /// <summary>
+        /// Method to get all books by a specifik author
+        /// </summary>
+        /// <param name="author">Takes an author object</param>
+        /// <returns>A list of books</returns>
         public IEnumerable<Book> GetAllBooksByAuthor(Author author)
         {
             return bookRepository.All().Where(b => b.Author == author); 
