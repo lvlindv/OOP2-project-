@@ -66,11 +66,15 @@
             this.lbOverdueLoans = new System.Windows.Forms.ListBox();
             this.lbPreviousLoans = new System.Windows.Forms.ListBox();
             this.lbCurrentLoans = new System.Windows.Forms.ListBox();
-            this.btnAddNewLoan = new System.Windows.Forms.Button();
             this.labelOverdue = new System.Windows.Forms.Label();
             this.labelCurrent = new System.Windows.Forms.Label();
             this.labelReturned = new System.Windows.Forms.Label();
             this.groupBoxAddNewLoan = new System.Windows.Forms.GroupBox();
+            this.groupBoxAddNewMember = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBoxLoansByMember = new System.Windows.Forms.ComboBox();
+            this.btnAddNewLoan = new System.Windows.Forms.Button();
+            this.btnShowLoansByMember = new System.Windows.Forms.Button();
             this.tabControlLibrary.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -80,6 +84,8 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBoxAddNewLoan.SuspendLayout();
+            this.groupBoxAddNewMember.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbBooks
@@ -121,11 +127,11 @@
             // 
             // BtnAddNewMember
             // 
-            this.BtnAddNewMember.Location = new System.Drawing.Point(400, 224);
+            this.BtnAddNewMember.Location = new System.Drawing.Point(20, 178);
             this.BtnAddNewMember.Name = "BtnAddNewMember";
-            this.BtnAddNewMember.Size = new System.Drawing.Size(124, 43);
+            this.BtnAddNewMember.Size = new System.Drawing.Size(100, 41);
             this.BtnAddNewMember.TabIndex = 5;
-            this.BtnAddNewMember.Text = "Add new member";
+            this.BtnAddNewMember.Text = "Add";
             this.BtnAddNewMember.UseVisualStyleBackColor = true;
             this.BtnAddNewMember.Click += new System.EventHandler(this.BtnAddNewMember_Click);
             // 
@@ -392,12 +398,8 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBoxMemberPersonalID);
-            this.tabPage3.Controls.Add(this.textBoxMemberName);
-            this.tabPage3.Controls.Add(this.labelName);
-            this.tabPage3.Controls.Add(this.labelPersonalID);
             this.tabPage3.Controls.Add(this.lbMembers);
-            this.tabPage3.Controls.Add(this.BtnAddNewMember);
+            this.tabPage3.Controls.Add(this.groupBoxAddNewMember);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -409,7 +411,7 @@
             // 
             // textBoxMemberPersonalID
             // 
-            this.textBoxMemberPersonalID.Location = new System.Drawing.Point(400, 129);
+            this.textBoxMemberPersonalID.Location = new System.Drawing.Point(20, 60);
             this.textBoxMemberPersonalID.Name = "textBoxMemberPersonalID";
             this.textBoxMemberPersonalID.Size = new System.Drawing.Size(100, 20);
             this.textBoxMemberPersonalID.TabIndex = 12;
@@ -417,7 +419,7 @@
             // 
             // textBoxMemberName
             // 
-            this.textBoxMemberName.Location = new System.Drawing.Point(400, 183);
+            this.textBoxMemberName.Location = new System.Drawing.Point(20, 114);
             this.textBoxMemberName.Name = "textBoxMemberName";
             this.textBoxMemberName.Size = new System.Drawing.Size(100, 20);
             this.textBoxMemberName.TabIndex = 11;
@@ -426,7 +428,7 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(400, 167);
+            this.labelName.Location = new System.Drawing.Point(20, 98);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 10;
@@ -435,7 +437,7 @@
             // labelPersonalID
             // 
             this.labelPersonalID.AutoSize = true;
-            this.labelPersonalID.Location = new System.Drawing.Point(400, 112);
+            this.labelPersonalID.Location = new System.Drawing.Point(20, 43);
             this.labelPersonalID.Name = "labelPersonalID";
             this.labelPersonalID.Size = new System.Drawing.Size(62, 13);
             this.labelPersonalID.TabIndex = 8;
@@ -452,6 +454,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBox2);
             this.tabPage4.Controls.Add(this.labelReturned);
             this.tabPage4.Controls.Add(this.labelCurrent);
             this.tabPage4.Controls.Add(this.labelOverdue);
@@ -470,9 +473,9 @@
             // 
             // btnReturnLoan
             // 
-            this.btnReturnLoan.Location = new System.Drawing.Point(334, 359);
+            this.btnReturnLoan.Location = new System.Drawing.Point(608, 375);
             this.btnReturnLoan.Name = "btnReturnLoan";
-            this.btnReturnLoan.Size = new System.Drawing.Size(110, 64);
+            this.btnReturnLoan.Size = new System.Drawing.Size(128, 64);
             this.btnReturnLoan.TabIndex = 7;
             this.btnReturnLoan.Text = "Return selected loan";
             this.btnReturnLoan.UseVisualStyleBackColor = true;
@@ -526,16 +529,6 @@
             this.lbCurrentLoans.Size = new System.Drawing.Size(670, 82);
             this.lbCurrentLoans.TabIndex = 1;
             // 
-            // btnAddNewLoan
-            // 
-            this.btnAddNewLoan.Location = new System.Drawing.Point(6, 96);
-            this.btnAddNewLoan.Name = "btnAddNewLoan";
-            this.btnAddNewLoan.Size = new System.Drawing.Size(206, 23);
-            this.btnAddNewLoan.TabIndex = 0;
-            this.btnAddNewLoan.Text = "Add";
-            this.btnAddNewLoan.UseVisualStyleBackColor = true;
-            this.btnAddNewLoan.Click += new System.EventHandler(this.btnAddNewLoan_Click);
-            // 
             // labelOverdue
             // 
             this.labelOverdue.AutoSize = true;
@@ -571,10 +564,62 @@
             this.groupBoxAddNewLoan.Controls.Add(this.btnAddNewLoan);
             this.groupBoxAddNewLoan.Location = new System.Drawing.Point(66, 333);
             this.groupBoxAddNewLoan.Name = "groupBoxAddNewLoan";
-            this.groupBoxAddNewLoan.Size = new System.Drawing.Size(219, 133);
+            this.groupBoxAddNewLoan.Size = new System.Drawing.Size(229, 145);
             this.groupBoxAddNewLoan.TabIndex = 11;
             this.groupBoxAddNewLoan.TabStop = false;
             this.groupBoxAddNewLoan.Text = "Add new loan";
+            // 
+            // groupBoxAddNewMember
+            // 
+            this.groupBoxAddNewMember.Controls.Add(this.textBoxMemberPersonalID);
+            this.groupBoxAddNewMember.Controls.Add(this.BtnAddNewMember);
+            this.groupBoxAddNewMember.Controls.Add(this.textBoxMemberName);
+            this.groupBoxAddNewMember.Controls.Add(this.labelName);
+            this.groupBoxAddNewMember.Controls.Add(this.labelPersonalID);
+            this.groupBoxAddNewMember.Location = new System.Drawing.Point(346, 96);
+            this.groupBoxAddNewMember.Name = "groupBoxAddNewMember";
+            this.groupBoxAddNewMember.Size = new System.Drawing.Size(153, 248);
+            this.groupBoxAddNewMember.TabIndex = 13;
+            this.groupBoxAddNewMember.TabStop = false;
+            this.groupBoxAddNewMember.Text = "Add new member";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnShowLoansByMember);
+            this.groupBox2.Controls.Add(this.comboBoxLoansByMember);
+            this.groupBox2.Location = new System.Drawing.Point(316, 333);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(231, 145);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Show loans by specific member";
+            // 
+            // comboBoxLoansByMember
+            // 
+            this.comboBoxLoansByMember.FormattingEnabled = true;
+            this.comboBoxLoansByMember.Location = new System.Drawing.Point(6, 69);
+            this.comboBoxLoansByMember.Name = "comboBoxLoansByMember";
+            this.comboBoxLoansByMember.Size = new System.Drawing.Size(206, 21);
+            this.comboBoxLoansByMember.TabIndex = 7;
+            // 
+            // btnAddNewLoan
+            // 
+            this.btnAddNewLoan.Location = new System.Drawing.Point(6, 96);
+            this.btnAddNewLoan.Name = "btnAddNewLoan";
+            this.btnAddNewLoan.Size = new System.Drawing.Size(206, 23);
+            this.btnAddNewLoan.TabIndex = 0;
+            this.btnAddNewLoan.Text = "Add";
+            this.btnAddNewLoan.UseVisualStyleBackColor = true;
+            this.btnAddNewLoan.Click += new System.EventHandler(this.btnAddNewLoan_Click);
+            // 
+            // btnShowLoansByMember
+            // 
+            this.btnShowLoansByMember.Location = new System.Drawing.Point(6, 96);
+            this.btnShowLoansByMember.Name = "btnShowLoansByMember";
+            this.btnShowLoansByMember.Size = new System.Drawing.Size(206, 23);
+            this.btnShowLoansByMember.TabIndex = 7;
+            this.btnShowLoansByMember.Text = "Show";
+            this.btnShowLoansByMember.UseVisualStyleBackColor = true;
             // 
             // LibraryForm
             // 
@@ -596,10 +641,12 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.groupBoxAddNewLoan.ResumeLayout(false);
+            this.groupBoxAddNewMember.ResumeLayout(false);
+            this.groupBoxAddNewMember.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -642,7 +689,6 @@
         private System.Windows.Forms.ComboBox comboBoxBook;
         private System.Windows.Forms.Button btnAddNewCopy;
         private System.Windows.Forms.Label labelCondition;
-        private System.Windows.Forms.Button btnAddNewLoan;
         private System.Windows.Forms.ListBox lbOverdueLoans;
         private System.Windows.Forms.ListBox lbPreviousLoans;
         private System.Windows.Forms.ListBox lbCurrentLoans;
@@ -654,6 +700,11 @@
         private System.Windows.Forms.Label labelCurrent;
         private System.Windows.Forms.Label labelOverdue;
         private System.Windows.Forms.GroupBox groupBoxAddNewLoan;
+        private System.Windows.Forms.GroupBox groupBoxAddNewMember;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnShowLoansByMember;
+        private System.Windows.Forms.ComboBox comboBoxLoansByMember;
+        private System.Windows.Forms.Button btnAddNewLoan;
     }
 }
 
