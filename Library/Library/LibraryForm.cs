@@ -48,6 +48,7 @@ namespace Library
             LoanTabShowMembers(memberService.All());
             LoanTabShowCopies(bookCopyService.All());
             ShowAllCurrentLoans(loanService.GetAllCurrentLoans());
+            LoanTabShowLoansByMember(memberService.All());
 
         }
 
@@ -244,6 +245,7 @@ namespace Library
                 textBoxMemberPersonalID.Clear();
                 MemberTabShowAllMembers(memberService.All());
                 LoanTabShowMembers(memberService.All());
+                LoanTabShowLoansByMember(memberService.All());
             }
 
         }
@@ -376,6 +378,44 @@ namespace Library
             //    new OperationCanceledException();
             //}
 
+
+        }
+
+        //
+        // Show Loans by a specific member
+        //
+
+        /// <summary>
+        /// Method to show members in the combobox for adding new loans
+        /// </summary>
+        /// <param name="members">A list of members</param>
+        public void LoanTabShowLoansByMember(IEnumerable<Member> members)
+        {
+            comboBoxLoansByMember.Items.Clear();
+            foreach (Member member in members)
+            {
+                comboBoxLoansByMember.Items.Add(member);
+            }
+        }
+
+        private void btnShowLoansByMember_Click(object sender, EventArgs e)
+        {
+            lbOverdueLoans.Items.Clear();
+            lbPreviousLoans.Items.Clear();
+            lbCurrentLoans.Items.Clear();
+
+            foreach (Loan loan in loanService.GetAllLoansByMember((Member)comboBoxLoansByMember.SelectedItem))
+            {                  
+                lbCurrentLoans.Items.Add(loan);
+                lbPreviousLoans.Items.Add(loan);
+                lbOverdueLoans.Items.Add(loan);
+            }
+        }
+
+
+
+        private void comboBoxLoansByMember_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
