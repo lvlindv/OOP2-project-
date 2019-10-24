@@ -26,15 +26,20 @@ namespace Library.Models
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="timeOfLoan"> set values of properties</param>
+        /// <param name="bookCopy"></param>
+        /// <param name="member"></param>
         public Loan(DateTime timeOfLoan, BookCopy bookCopy, Member member)
         {
-            //Set values of properties
             this.TimeOfLoan = timeOfLoan;
             this.DueDate = timeOfLoan.AddDays(15);
             this.BookCopy = bookCopy;
             this.Member = member;
         }
 
+        /// <summary>
+        /// Empty Constructor
+        /// </summary>
         public Loan()
         {
 

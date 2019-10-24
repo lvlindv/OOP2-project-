@@ -25,9 +25,11 @@ namespace Library.Models
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="personalId"></param>
+        /// <param name="name"></param>
+        /// <param name="dateofMembership"></param>
         public Member(int personalId, string name, DateTime dateofMembership)
         {
-            //Set values of properties
             this.PersonalId = personalId;
             this.Name = name;
             this.DateOfMembership = dateofMembership;
