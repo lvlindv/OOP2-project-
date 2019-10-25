@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Library.Repositories
 {
-    public class AuthorRepository
+    public class AuthorRepository : IRepository<Author, int>
     {
         /// <summary>
         /// Instatiates a library context
@@ -48,6 +48,16 @@ namespace Library.Repositories
             // Because the object a was retrieved through the same context, we don't need to do a lookup. 
             // We can just tell the context to save any changes that happened.
             context.SaveChanges();
+        }
+
+        public void Remove(Author item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Author Find(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

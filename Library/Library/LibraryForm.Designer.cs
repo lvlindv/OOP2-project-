@@ -95,7 +95,6 @@
             this.lbBooks.Name = "lbBooks";
             this.lbBooks.Size = new System.Drawing.Size(368, 342);
             this.lbBooks.TabIndex = 0;
-            this.lbBooks.SelectedIndexChanged += new System.EventHandler(this.lbBooks_SelectedIndexChanged);
             // 
             // btnShowAllBooks
             // 
@@ -116,7 +115,6 @@
             this.checkBoxOnlyAvailable.TabIndex = 2;
             this.checkBoxOnlyAvailable.Text = "Only available books";
             this.checkBoxOnlyAvailable.UseVisualStyleBackColor = true;
-            this.checkBoxOnlyAvailable.CheckedChanged += new System.EventHandler(this.checkBoxOnlyAvailable_CheckedChanged);
             // 
             // textBoxAuthorName
             // 
@@ -163,7 +161,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Books";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox1
             // 
@@ -290,7 +287,6 @@
             this.comboBoxAuthor.Name = "comboBoxAuthor";
             this.comboBoxAuthor.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAuthor.TabIndex = 14;
-            this.comboBoxAuthor.SelectedIndexChanged += new System.EventHandler(this.comboBoxAuthor_SelectedIndexChanged);
             // 
             // textBoxDescription
             // 
@@ -299,7 +295,6 @@
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(124, 20);
             this.textBoxDescription.TabIndex = 13;
-            this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
             // labelDescription
             // 
@@ -316,7 +311,6 @@
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(100, 20);
             this.textBoxTitle.TabIndex = 11;
-            this.textBoxTitle.TextChanged += new System.EventHandler(this.textBoxTitle_TextChanged);
             // 
             // labelTitle
             // 
@@ -342,7 +336,6 @@
             this.textBoxISBN.Name = "textBoxISBN";
             this.textBoxISBN.Size = new System.Drawing.Size(100, 20);
             this.textBoxISBN.TabIndex = 8;
-            this.textBoxISBN.TextChanged += new System.EventHandler(this.textBoxISBN_TextChanged);
             // 
             // btnAddNewBook
             // 
