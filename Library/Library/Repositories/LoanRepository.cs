@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Library.Repositories
 {
-    public class LoanRepository
+    public class LoanRepository : IRepository<Loan, int>
     {
         /// <summary>
         /// Instantiates library context
@@ -47,6 +47,16 @@ namespace Library.Repositories
             // Because the object l was retrieved through the same context, we don't need to do a lookup. 
             // We can just tell the context to save any changes that happened.
             context.SaveChanges();
+        }
+
+        public void Remove(Loan item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Loan Find(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
