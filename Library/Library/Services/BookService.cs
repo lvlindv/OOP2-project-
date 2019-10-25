@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace Library.Services
 {
-    public class BookService
+    public class BookService : IService
     {
         /// <summary>
         /// service doesn't need a context but it needs a repository.
         /// </summary>
         BookRepository bookRepository;
+
+        public event EventHandler Updated;
 
         /// <summary>
         /// 
@@ -33,6 +35,11 @@ namespace Library.Services
         {
             return bookRepository.All();
         }
+
+        //public IEnumerable<Book> GetAvailableBooks()
+        //{
+        //    return All().Where(book => book.BookCopies.)
+        //}
 
 
         /// <summary>

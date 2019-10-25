@@ -45,7 +45,7 @@ namespace Library.Models {
                 DateOfMembership = new DateTime(2019, 10, 23)
             };
 
-            Loan loan1 = new Loan
+            Loan loan1 = new Loan()
             {
                 TimeOfLoan = new DateTime(2019, 10, 24),
                 Member = viggoLundin,

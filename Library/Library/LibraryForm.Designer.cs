@@ -75,8 +75,7 @@
             this.comboBoxMembers = new System.Windows.Forms.ComboBox();
             this.comboBoxBookCopies = new System.Windows.Forms.ComboBox();
             this.btnAddNewLoan = new System.Windows.Forms.Button();
-            this.textBoxFine = new System.Windows.Forms.TextBox();
-            this.btnFine = new System.Windows.Forms.Button();
+            this.listBoxTEST = new System.Windows.Forms.ListBox();
             this.tabControlLibrary.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -141,7 +140,7 @@
             this.tabControlLibrary.Controls.Add(this.tabPage2);
             this.tabControlLibrary.Controls.Add(this.tabPage3);
             this.tabControlLibrary.Controls.Add(this.tabPage4);
-            this.tabControlLibrary.Location = new System.Drawing.Point(39, 21);
+            this.tabControlLibrary.Location = new System.Drawing.Point(43, 21);
             this.tabControlLibrary.Name = "tabControlLibrary";
             this.tabControlLibrary.SelectedIndex = 0;
             this.tabControlLibrary.Size = new System.Drawing.Size(853, 510);
@@ -391,8 +390,6 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.btnFine);
-            this.tabPage3.Controls.Add(this.textBoxFine);
             this.tabPage3.Controls.Add(this.lbMembers);
             this.tabPage3.Controls.Add(this.groupBoxAddNewMember);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -508,27 +505,30 @@
             // labelReturned
             // 
             this.labelReturned.AutoSize = true;
+            this.labelReturned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelReturned.Location = new System.Drawing.Point(63, 229);
             this.labelReturned.Name = "labelReturned";
-            this.labelReturned.Size = new System.Drawing.Size(51, 13);
+            this.labelReturned.Size = new System.Drawing.Size(59, 13);
             this.labelReturned.TabIndex = 10;
             this.labelReturned.Text = "Returned";
             // 
             // labelCurrent
             // 
             this.labelCurrent.AutoSize = true;
+            this.labelCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCurrent.Location = new System.Drawing.Point(63, 121);
             this.labelCurrent.Name = "labelCurrent";
-            this.labelCurrent.Size = new System.Drawing.Size(41, 13);
+            this.labelCurrent.Size = new System.Drawing.Size(48, 13);
             this.labelCurrent.TabIndex = 9;
             this.labelCurrent.Text = "Current";
             // 
             // labelOverdue
             // 
             this.labelOverdue.AutoSize = true;
+            this.labelOverdue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOverdue.Location = new System.Drawing.Point(63, 18);
             this.labelOverdue.Name = "labelOverdue";
-            this.labelOverdue.Size = new System.Drawing.Size(51, 13);
+            this.labelOverdue.Size = new System.Drawing.Size(59, 13);
             this.labelOverdue.TabIndex = 8;
             this.labelOverdue.Text = "Overdue ";
             // 
@@ -544,6 +544,8 @@
             // 
             // lbOverdueLoans
             // 
+            this.lbOverdueLoans.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOverdueLoans.ForeColor = System.Drawing.Color.Red;
             this.lbOverdueLoans.FormattingEnabled = true;
             this.lbOverdueLoans.Location = new System.Drawing.Point(66, 34);
             this.lbOverdueLoans.Name = "lbOverdueLoans";
@@ -581,30 +583,33 @@
             // 
             // dtLoans
             // 
-            this.dtLoans.Location = new System.Drawing.Point(6, 16);
+            this.dtLoans.Location = new System.Drawing.Point(6, 28);
             this.dtLoans.Name = "dtLoans";
             this.dtLoans.Size = new System.Drawing.Size(206, 20);
             this.dtLoans.TabIndex = 4;
+            this.dtLoans.ValueChanged += new System.EventHandler(this.dtLoans_ValueChanged);
             // 
             // comboBoxMembers
             // 
             this.comboBoxMembers.FormattingEnabled = true;
-            this.comboBoxMembers.Location = new System.Drawing.Point(6, 69);
+            this.comboBoxMembers.Location = new System.Drawing.Point(6, 81);
             this.comboBoxMembers.Name = "comboBoxMembers";
             this.comboBoxMembers.Size = new System.Drawing.Size(206, 21);
             this.comboBoxMembers.TabIndex = 5;
+            this.comboBoxMembers.SelectedIndexChanged += new System.EventHandler(this.comboBoxMembers_SelectedIndexChanged);
             // 
             // comboBoxBookCopies
             // 
             this.comboBoxBookCopies.FormattingEnabled = true;
-            this.comboBoxBookCopies.Location = new System.Drawing.Point(6, 42);
+            this.comboBoxBookCopies.Location = new System.Drawing.Point(6, 54);
             this.comboBoxBookCopies.Name = "comboBoxBookCopies";
             this.comboBoxBookCopies.Size = new System.Drawing.Size(206, 21);
             this.comboBoxBookCopies.TabIndex = 6;
+            this.comboBoxBookCopies.SelectedIndexChanged += new System.EventHandler(this.comboBoxBookCopies_SelectedIndexChanged);
             // 
             // btnAddNewLoan
             // 
-            this.btnAddNewLoan.Location = new System.Drawing.Point(6, 96);
+            this.btnAddNewLoan.Location = new System.Drawing.Point(6, 108);
             this.btnAddNewLoan.Name = "btnAddNewLoan";
             this.btnAddNewLoan.Size = new System.Drawing.Size(206, 23);
             this.btnAddNewLoan.TabIndex = 0;
@@ -612,30 +617,20 @@
             this.btnAddNewLoan.UseVisualStyleBackColor = true;
             this.btnAddNewLoan.Click += new System.EventHandler(this.btnAddNewLoan_Click);
             // 
-            // textBoxFine
+            // listBoxTEST
             // 
-            this.textBoxFine.Location = new System.Drawing.Point(570, 210);
-            this.textBoxFine.Name = "textBoxFine";
-            this.textBoxFine.ReadOnly = true;
-            this.textBoxFine.Size = new System.Drawing.Size(128, 20);
-            this.textBoxFine.TabIndex = 14;
-            this.textBoxFine.TextChanged += new System.EventHandler(this.textBoxFine_TextChanged);
-            // 
-            // btnFine
-            // 
-            this.btnFine.Location = new System.Drawing.Point(570, 247);
-            this.btnFine.Name = "btnFine";
-            this.btnFine.Size = new System.Drawing.Size(128, 25);
-            this.btnFine.TabIndex = 15;
-            this.btnFine.Text = "Fine";
-            this.btnFine.UseVisualStyleBackColor = true;
-            this.btnFine.Click += new System.EventHandler(this.btnFine_Click);
+            this.listBoxTEST.FormattingEnabled = true;
+            this.listBoxTEST.Location = new System.Drawing.Point(43, 567);
+            this.listBoxTEST.Name = "listBoxTEST";
+            this.listBoxTEST.Size = new System.Drawing.Size(683, 121);
+            this.listBoxTEST.TabIndex = 7;
             // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 730);
+            this.Controls.Add(this.listBoxTEST);
             this.Controls.Add(this.tabControlLibrary);
             this.Name = "LibraryForm";
             this.Text = "Library";
@@ -650,7 +645,6 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.groupBoxAddNewMember.ResumeLayout(false);
             this.groupBoxAddNewMember.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -715,8 +709,7 @@
         private System.Windows.Forms.Button btnShowLoansByMember;
         private System.Windows.Forms.ComboBox comboBoxLoansByMember;
         private System.Windows.Forms.Button btnAddNewLoan;
-        private System.Windows.Forms.TextBox textBoxFine;
-        private System.Windows.Forms.Button btnFine;
+        private System.Windows.Forms.ListBox listBoxTEST;
     }
 }
 

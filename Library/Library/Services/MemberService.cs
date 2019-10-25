@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace Library.Services
 {
-    public class MemberService
+    public class MemberService : IService
     {
         /// <summary>
         /// service doesn't need a context but it needs a repository.
         /// </summary>
         MemberRepository memberRepository;
+
+        public event EventHandler Updated;
 
         /// <summary>
         /// Constructor

@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace Library.Services
 {
-    public class AuthorService
+    public class AuthorService : IService
     {
         /// <summary>
         /// service doesn't need a context but it needs a repository.
         /// </summary>
         AuthorRepository authorRepository;
+
+        public event EventHandler Updated;
 
         /// <param name="rFactory">A repository factory, so the service can create its own repository.</param>
         public AuthorService(RepositoryFactory rFactory)
