@@ -75,6 +75,8 @@
             this.comboBoxMembers = new System.Windows.Forms.ComboBox();
             this.comboBoxBookCopies = new System.Windows.Forms.ComboBox();
             this.btnAddNewLoan = new System.Windows.Forms.Button();
+            this.textBoxFine = new System.Windows.Forms.TextBox();
+            this.btnFine = new System.Windows.Forms.Button();
             this.tabControlLibrary.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -359,7 +361,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Authors";
             this.tabPage2.UseVisualStyleBackColor = true;
-
             // 
             // labelAuthorName
             // 
@@ -390,6 +391,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnFine);
+            this.tabPage3.Controls.Add(this.textBoxFine);
             this.tabPage3.Controls.Add(this.lbMembers);
             this.tabPage3.Controls.Add(this.groupBoxAddNewMember);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -399,7 +402,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Members";
             this.tabPage3.UseVisualStyleBackColor = true;
-
             // 
             // lbMembers
             // 
@@ -408,7 +410,6 @@
             this.lbMembers.Name = "lbMembers";
             this.lbMembers.Size = new System.Drawing.Size(258, 290);
             this.lbMembers.TabIndex = 6;
-
             // 
             // groupBoxAddNewMember
             // 
@@ -430,7 +431,6 @@
             this.textBoxMemberPersonalID.Name = "textBoxMemberPersonalID";
             this.textBoxMemberPersonalID.Size = new System.Drawing.Size(100, 20);
             this.textBoxMemberPersonalID.TabIndex = 12;
-
             // 
             // textBoxMemberName
             // 
@@ -438,7 +438,6 @@
             this.textBoxMemberName.Name = "textBoxMemberName";
             this.textBoxMemberName.Size = new System.Drawing.Size(100, 20);
             this.textBoxMemberName.TabIndex = 11;
-
             // 
             // labelName
             // 
@@ -505,7 +504,6 @@
             this.comboBoxLoansByMember.Name = "comboBoxLoansByMember";
             this.comboBoxLoansByMember.Size = new System.Drawing.Size(206, 21);
             this.comboBoxLoansByMember.TabIndex = 7;
-
             // 
             // labelReturned
             // 
@@ -559,7 +557,6 @@
             this.lbPreviousLoans.Name = "lbPreviousLoans";
             this.lbPreviousLoans.Size = new System.Drawing.Size(670, 82);
             this.lbPreviousLoans.TabIndex = 2;
-  
             // 
             // lbCurrentLoans
             // 
@@ -615,6 +612,25 @@
             this.btnAddNewLoan.UseVisualStyleBackColor = true;
             this.btnAddNewLoan.Click += new System.EventHandler(this.btnAddNewLoan_Click);
             // 
+            // textBoxFine
+            // 
+            this.textBoxFine.Location = new System.Drawing.Point(570, 210);
+            this.textBoxFine.Name = "textBoxFine";
+            this.textBoxFine.ReadOnly = true;
+            this.textBoxFine.Size = new System.Drawing.Size(128, 20);
+            this.textBoxFine.TabIndex = 14;
+            this.textBoxFine.TextChanged += new System.EventHandler(this.textBoxFine_TextChanged);
+            // 
+            // btnFine
+            // 
+            this.btnFine.Location = new System.Drawing.Point(570, 247);
+            this.btnFine.Name = "btnFine";
+            this.btnFine.Size = new System.Drawing.Size(128, 25);
+            this.btnFine.TabIndex = 15;
+            this.btnFine.Text = "Fine";
+            this.btnFine.UseVisualStyleBackColor = true;
+            this.btnFine.Click += new System.EventHandler(this.btnFine_Click);
+            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -623,7 +639,6 @@
             this.Controls.Add(this.tabControlLibrary);
             this.Name = "LibraryForm";
             this.Text = "Library";
-
             this.tabControlLibrary.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -635,6 +650,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.groupBoxAddNewMember.ResumeLayout(false);
             this.groupBoxAddNewMember.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -699,6 +715,8 @@
         private System.Windows.Forms.Button btnShowLoansByMember;
         private System.Windows.Forms.ComboBox comboBoxLoansByMember;
         private System.Windows.Forms.Button btnAddNewLoan;
+        private System.Windows.Forms.TextBox textBoxFine;
+        private System.Windows.Forms.Button btnFine;
     }
 }
 

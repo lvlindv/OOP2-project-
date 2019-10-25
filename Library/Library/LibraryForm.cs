@@ -48,7 +48,7 @@ namespace Library
             LoanTabShowMembers(memberService.All());
             LoanTabShowCopies(bookCopyService.All());
             ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
-            LoanTabShowLoansByMember(memberService.All());
+            LoanTabShowLoansByMember(memberService.All());        
 
         }
 
@@ -219,8 +219,10 @@ namespace Library
         public void MemberTabShowAllMembers(IEnumerable<Member> members)
         {
             UpdateListBox(lbMembers, members);
+
         }
 
+        
 
         private void BtnAddNewMember_Click(object sender, EventArgs e)
         {
@@ -243,6 +245,19 @@ namespace Library
             }
 
         }
+
+        private void btnFine_Click(object sender, EventArgs e)
+        {
+            string a = lbMembers.SelectedItem.ToString();
+            textBoxFine.Text = a;
+        }
+
+        private void textBoxFine_TextChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
 
 
         ///
@@ -329,9 +344,5 @@ namespace Library
             UpdateListBox(lbCurrentLoans, loanService.GetAllCurrentLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
             UpdateListBox(lbPreviousLoans, loanService.GetAllPreviousLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
         }
-
-
-
-
     }
 }
