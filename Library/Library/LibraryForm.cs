@@ -52,51 +52,84 @@ namespace Library
 
         }
 
-        //public void UpdateListBox (ListBox lb, IEnumerable<T> objectList)
-        //{
-        //    lb.Items.Clear();
-        //    foreach (T o in objectList)
-        //    {
-        //        lb.Items.Add(o);
-        //    }
-        //}
+        ///
+        /// METHODS TO UPDATE CONTENT
+        /// 
 
-
-        //public void UpdateComboBox(ComboBox cb, IEnumerable<T> objectList)
-        //{
-        //    cb.Items.Clear();
-        //    foreach (T o in objectList)
-        //    {
-        //        cb.Items.Add(o);
-        //    }
-        //}
-
-
-        public void BookTabShowAllAuthors(IEnumerable<Author> authors)
+        /// <summary>
+        /// Updates content of a given listbox
+        /// </summary>
+        /// <param name="lb">A listbox</param>
+        /// <param name="objectList">A list of a type of object</param>
+        public void UpdateListBox(ListBox lb, IEnumerable<object> objectList)
         {
-            comboBoxAuthor.Items.Clear();
-            foreach (Author author in authors)
+            lb.Items.Clear();
+            foreach (object o in objectList)
             {
-                comboBoxAuthor.Items.Add(author);
+                lb.Items.Add(o);
             }
         }
 
+        /// <summary>
+        /// Updates content of a given combobox
+        /// </summary>
+        /// <param name="lb">A combobox</param>
+        /// <param name="objectList">A list of a type of object</param>
+        public void UpdateComboBox(ComboBox cb, IEnumerable<object> objectList)
+        {
+            cb.Items.Clear();
+            foreach (object o in objectList)
+            {
+                cb.Items.Add(o);
+            }
+        }
+
+        ///
+        /// BOOK TAB
+        ///
+
+        /// <summary>
+        /// Method to show all authors to add a new book
+        /// </summary>
+        /// <param name="authors">A list of authors</param>
+        public void BookTabShowAllAuthors(IEnumerable<Author> authors)
+        {
+            UpdateComboBox(comboBoxAuthor, authors);
+        }
+
+        /// <summary>
+        /// Method to show books in the listbox in the books tab
+        /// </summary>
+        /// <param name="books">A list of books</param>
         private void ShowAllBooks(IEnumerable<Book> books)
         {
-            lbBooks.Items.Clear();
-            foreach (Book book in books)
-            {
-                lbBooks.Items.Add(book);
-            }
+            UpdateListBox(lbBooks, books);
+        }
 
-            //UpdateListBox(lbBooks, IEnumerable < Book > books);
-            
+        /// <summary>
+        /// Method to show authors that the user can choose from to filter books
+        /// </summary>
+        /// <param name="authors">A list of authors</param>
+        public void BookTabBooksByAuthor(IEnumerable<Author> authors)
+        {
+            UpdateComboBox(comboBoxBooksByAuthor, authors);
+        }
+
+        /// <summary>
+        /// Button for showing books by selected author 
+        /// </summary>
+        private void btnBooksByAuthor_Click(object sender, EventArgs e)
+        {
+            UpdateListBox(lbBooks, bookService.GetAllBooksByAuthor((Author)comboBoxBooksByAuthor.SelectedItem));
         }
 
         private void LibraryForm_Load(object sender, EventArgs e)
         {
         }
 
+        /// <summary>
+        /// "Show all books"-button
+        /// </summary>
         private void btnShowAllBooks_Click(object sender, EventArgs e)
         {
             ShowAllBooks(bookService.All());
@@ -115,10 +148,6 @@ namespace Library
         {
         }
 
-
-        //
-        // ADD NEW BOOK
-        //
         private void tabPage1_Click(object sender, EventArgs e)
         {
         }
@@ -143,6 +172,9 @@ namespace Library
         {
         }
 
+        /// <summary>
+        /// "Add book"-button
+        /// </summary>
         private void btnAddNewBook_Click(object sender, EventArgs e)
         {
             if (textBoxISBN.Text == "" || textBoxTitle.Text == "" || textBoxDescription.Text == "" )
@@ -166,8 +198,30 @@ namespace Library
             }
         }
 
+        ///
+        /// ADD NEW COPIES
+        /// 
+
+        /// <summary>
+        /// Method to show books so that the user can pick one to add a copy of
+        /// </summary>
+        /// <param name="books">A list of books</param>
+        public void ShowAllBooksInComboBox(IEnumerable<Book> books)
+        {
+            UpdateComboBox(comboBoxBook, books);
+        }
+
+        //Add new Copy-button
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BookCopy copy = new BookCopy((Book)comboBoxBook.SelectedItem, Convert.ToInt32(numericUpDownCopies.Value));
+            bookCopyService.Add(copy);
+            ShowAllBooks(bookService.All());
+            LoanTabShowCopies(bookCopyService.All());
+        }
+
         //
-        // ADD NEW AUTHOR
+        // AUTHORS TAB
         //
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -176,11 +230,7 @@ namespace Library
 
         public void AuthorTabShowAllAuthors(IEnumerable<Author> authors)
         {
-            lbAuthors.Items.Clear();
-            foreach (Author author in authors)
-            {
-                lbAuthors.Items.Add(author);
-            }
+            UpdateListBox(lbAuthors, authors);
         }
 
         private void btnAddNewAuthor_Click(object sender, EventArgs e)
@@ -204,7 +254,7 @@ namespace Library
         }
 
         //
-        // ADD NEW MEMBER
+        // MEMBERS TAB
         //
 
         private void tabPage3_Click(object sender, EventArgs e)
@@ -213,11 +263,7 @@ namespace Library
 
         public void MemberTabShowAllMembers(IEnumerable<Member> members)
         {
-            lbMembers.Items.Clear();
-            foreach (Member member in members)
-            {
-                lbMembers.Items.Add(member);
-            }
+            UpdateListBox(lbMembers, members);
         }
 
         private void textBoxMemberPersonalID_TextChanged(object sender, EventArgs e)
@@ -255,51 +301,9 @@ namespace Library
         }
 
 
-        //
-        // List books by author
-        //
-
-        public void BookTabBooksByAuthor(IEnumerable<Author> authors)
-        {
-            comboBoxBooksByAuthor.Items.Clear();
-            foreach (Author author in authors)
-            {
-                comboBoxBooksByAuthor.Items.Add(author);
-            }
-        }
 
         private void comboBoxBooksByAuthor_SelectedIndexChanged(object sender, EventArgs e)
         {
-        }
-
-        private void btnBooksByAuthor_Click(object sender, EventArgs e)
-        {
-            lbBooks.Items.Clear();
-            foreach (Book book in bookService.GetAllBooksByAuthor((Author)comboBoxBooksByAuthor.SelectedItem))
-            {
-                lbBooks.Items.Add(book);
-            }
-        }
-
-        ///
-        /// ADD NEW COPIES
-        /// 
-        public void ShowAllBooksInComboBox(IEnumerable<Book> books)
-        {
-            comboBoxBook.Items.Clear();
-            foreach (Book book in books)
-            {
-                comboBoxBook.Items.Add(book);
-            }
-        }
-
-        //Add new Copy-button
-        private void button1_Click(object sender, EventArgs e)
-        {
-            BookCopy copy = new BookCopy((Book)comboBoxBook.SelectedItem, Convert.ToInt32(numericUpDownCopies.Value));
-            bookCopyService.Add(copy);
-            ShowAllBooks(bookService.All());
-            LoanTabShowCopies(bookCopyService.All());
         }
 
         ///
@@ -308,11 +312,7 @@ namespace Library
 
         public void ShowAllCurrentLoans(IEnumerable<Loan> loans)
         {
-            lbCurrentLoans.Items.Clear();
-            foreach (Loan loan in loans)
-            {
-                lbCurrentLoans.Items.Add(loan);
-            }
+            UpdateListBox(lbCurrentLoans, loans);
         }
 
         /// <summary>
@@ -321,11 +321,7 @@ namespace Library
         /// <param name="members">A list of members</param>
         public void LoanTabShowMembers(IEnumerable<Member> members)
         {
-            comboBoxMembers.Items.Clear();
-            foreach (Member member in members)
-            {
-                comboBoxMembers.Items.Add(member);
-            }
+            UpdateComboBox(comboBoxMembers, members);
         }
 
         /// <summary>
@@ -334,11 +330,7 @@ namespace Library
         /// <param name="copies">Takes a list of book copies</param>
         public void LoanTabShowCopies(IEnumerable<BookCopy> copies)
         {
-            comboBoxBookCopies.Items.Clear();
-            foreach (BookCopy copy in copies)
-            {
-                comboBoxBookCopies.Items.Add(copy);
-            }
+            UpdateComboBox(comboBoxBookCopies, copies);
         }
 
 
@@ -349,14 +341,13 @@ namespace Library
             ShowAllCurrentLoans(loanService.GetAllCurrentLoans());
         }
 
-        //Knapp för att returnera böcker/lån
+        /// <summary>
+        /// Method to show all previous loans
+        /// </summary>
+        /// <param name="loans">A list of loans</param>
         public void ShowAllReturnedLoans(IEnumerable<Loan> loans)
         {
-            lbPreviousLoans.Items.Clear();
-            foreach (Loan loan in loans)
-            {
-                lbPreviousLoans.Items.Add(loan);
-            }
+            UpdateListBox(lbPreviousLoans, loans);
         }
 
         private void lbPreviousLoans_SelectedIndexChanged(object sender, EventArgs e)
@@ -364,6 +355,11 @@ namespace Library
 
         }
 
+        /// <summary>
+        /// "Return loan"-button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReturnLoan_Click(object sender, EventArgs e)
         {
             //try
@@ -391,25 +387,17 @@ namespace Library
         /// <param name="members">A list of members</param>
         public void LoanTabShowLoansByMember(IEnumerable<Member> members)
         {
-            comboBoxLoansByMember.Items.Clear();
-            foreach (Member member in members)
-            {
-                comboBoxLoansByMember.Items.Add(member);
-            }
+            UpdateComboBox(comboBoxLoansByMember, members);
         }
 
+        /// <summary>
+        /// Button to filter loans by entering a member
+        /// </summary>
         private void btnShowLoansByMember_Click(object sender, EventArgs e)
         {
-            lbOverdueLoans.Items.Clear();
-            lbPreviousLoans.Items.Clear();
-            lbCurrentLoans.Items.Clear();
-
-            foreach (Loan loan in loanService.GetAllLoansByMember((Member)comboBoxLoansByMember.SelectedItem))
-            {                  
-                lbCurrentLoans.Items.Add(loan);
-                lbPreviousLoans.Items.Add(loan);
-                lbOverdueLoans.Items.Add(loan);
-            }
+            UpdateListBox(lbOverdueLoans, loanService.GetAllOverdueLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
+            UpdateListBox(lbCurrentLoans, loanService.GetAllCurrentLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
+            UpdateListBox(lbPreviousLoans, loanService.GetAllPreviousLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
         }
 
 
