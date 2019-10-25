@@ -19,7 +19,7 @@ namespace Library.Models
         public int LoanId { get; set; } 
         public DateTime TimeOfLoan { get; set; }
         public DateTime DueDate { get; set; }
-        public DateTime? TimeOfReturn { get; set; } //Create method to check time of return VS due date
+        public DateTime? TimeOfReturn { get; set; }
         public virtual BookCopy BookCopy { get; set; }
         public virtual Member Member { get; set; }
 

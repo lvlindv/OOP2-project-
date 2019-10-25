@@ -48,7 +48,9 @@ namespace Library
             LoanTabShowMembers(memberService.All());
             LoanTabShowCopies(bookCopyService.All());
             ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
-            LoanTabShowLoansByMember(memberService.All());        
+            LoanTabShowLoansByMember(memberService.All());
+
+            TEST(bookCopyService.All(), loanService.All());
 
         }
 
@@ -179,6 +181,7 @@ namespace Library
             bookCopyService.Add(copy);
             ShowAllBooks(bookService.All());
             LoanTabShowCopies(bookCopyService.All());
+            TEST(bookCopyService.All(), loanService.All());
         }
 
         //
@@ -296,10 +299,8 @@ namespace Library
             Loan loan = new Loan(dtLoans.Value.Date, (BookCopy)comboBoxBookCopies.SelectedItem, (Member)comboBoxMembers.SelectedItem);
             loanService.Add(loan);
             ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
-           
+            TEST(bookCopyService.All(), loanService.All());
         }
-
-
 
         /// <summary>
         /// "Return loan"-button
@@ -308,17 +309,19 @@ namespace Library
         /// <param name="e"></param>
         private void btnReturnLoan_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-                var selectedLoan = (Loan)lbCurrentLoans.SelectedItem;
-                selectedLoan.TimeOfReturn = DateTime.Today;               
-                ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
-            //}
-            //catch
-            //{
-            //    new OperationCanceledException();
-            //}
 
+            var selectedLoan = (Loan)lbCurrentLoans.SelectedItem;
+            selectedLoan.TimeOfReturn = DateTime.Today;   
+           
+            //Calculate fine
+            if((selectedLoan.DueDate - DateTime.Today).TotalDays < 0)
+            {
+                double fine = (selectedLoan.DueDate - DateTime.Today).TotalDays * -10;
+                MessageBox.Show("Total fine for late return is: " + fine + " kr.", "This member has a late fine");
+            }
+
+            ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
+            TEST(bookCopyService.All(), loanService.All());
 
         }
 
@@ -343,6 +346,26 @@ namespace Library
             UpdateListBox(lbOverdueLoans, loanService.GetAllOverdueLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
             UpdateListBox(lbCurrentLoans, loanService.GetAllCurrentLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
             UpdateListBox(lbPreviousLoans, loanService.GetAllPreviousLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
+        }
+
+        public void TEST(IEnumerable<BookCopy> copyList, IEnumerable<Loan> loanList)
+        {
+            UpdateListBox(listBoxTEST, bookCopyService.GetAvailableBookCopies(copyList, loanList));
+        }
+
+        private void dtLoans_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxBookCopies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxMembers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

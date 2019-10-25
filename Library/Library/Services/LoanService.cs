@@ -8,12 +8,25 @@ using System.Threading.Tasks;
 
 namespace Library.Services
 {
-    public class LoanService
+    public class LoanService : IService
     {
         /// <summary>
         /// service doesn't need a context but it needs a repository.
         /// </summary>
         LoanRepository loanRepository;
+
+        public event EventHandler Updated;
+
+        //Method to check subscribers and raise Updated event
+        protected virtual void OnUpdated(EventArgs e)
+        {
+            EventHandler checkSub = Updated;
+
+            if (checkSub != null)
+            {
+                checkSub(this, e);
+            }
+        }
 
         /// <param name="rFactory">A repository factory, so the service can create its own repository.</param>
         public LoanService(RepositoryFactory rFactory)
@@ -37,7 +50,8 @@ namespace Library.Services
         public void Add(Loan loan)
         {
             loanRepository.Add(loan);
-            // TODO: Raise the Updated event.
+            var OnUpdated = new EventArgs
+            //OnUpdated(new EventArg));
         }
 
         /// <summary>
