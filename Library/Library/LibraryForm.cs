@@ -390,18 +390,14 @@ namespace Library
             UpdateComboBox(comboBoxLoansByMember, members);
         }
 
+        /// <summary>
+        /// Button to filter loans by entering a member
+        /// </summary>
         private void btnShowLoansByMember_Click(object sender, EventArgs e)
         {
-            lbOverdueLoans.Items.Clear();
-            lbPreviousLoans.Items.Clear();
-            lbCurrentLoans.Items.Clear();
-
-            foreach (Loan loan in loanService.GetAllLoansByMember((Member)comboBoxLoansByMember.SelectedItem))
-            {                  
-                lbCurrentLoans.Items.Add(loan);
-                lbPreviousLoans.Items.Add(loan);
-                lbOverdueLoans.Items.Add(loan);
-            }
+            UpdateListBox(lbOverdueLoans, loanService.GetAllOverdueLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
+            UpdateListBox(lbCurrentLoans, loanService.GetAllCurrentLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
+            UpdateListBox(lbPreviousLoans, loanService.GetAllPreviousLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
         }
 
 
