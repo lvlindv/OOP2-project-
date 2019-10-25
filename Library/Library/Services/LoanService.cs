@@ -64,7 +64,7 @@ namespace Library.Services
         /// <returns>A list of loans</returns>
         public IEnumerable<Loan> GetAllOverdueLoans()
         {
-            return loanRepository.All().Where(l => l.TimeOfReturn == null && l.DueDate > DateTime.Today);
+            return loanRepository.All().Where(l => l.TimeOfReturn == null && (l.DueDate - DateTime.Now).TotalDays < 0);//.DateTime.Compare(l.DueDate, DateTime.Now) > 0);
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Library.Services
         /// <returns>A list of loans</returns>
         public IEnumerable<Loan> GetAllOverdueLoansByMember(Member member)
         {
-            return loanRepository.All().Where(l => l.TimeOfReturn == null && l.DueDate > DateTime.Today && l.Member == member);
+            return loanRepository.All().Where(l => l.TimeOfReturn == null && l.Member == member);
         }
 
         /// <summary>

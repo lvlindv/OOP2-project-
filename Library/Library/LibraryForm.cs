@@ -47,7 +47,7 @@ namespace Library
             ShowAllBooksInComboBox(bookService.All());
             LoanTabShowMembers(memberService.All());
             LoanTabShowCopies(bookCopyService.All());
-            ShowAllCurrentLoans(loanService.GetAllCurrentLoans());
+            ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
             LoanTabShowLoansByMember(memberService.All());
 
         }
@@ -135,42 +135,6 @@ namespace Library
             ShowAllBooks(bookService.All());
         }
 
-        private void checkBoxOnlyAvailable_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void comboBoxAuthors_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-
-        private void lbBooks_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void textBoxISBN_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBoxTitle_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBoxDescription_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void comboBoxAuthor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBoxCopies_TextChanged(object sender, EventArgs e)
-        {
-        }
 
         /// <summary>
         /// "Add book"-button
@@ -310,10 +274,13 @@ namespace Library
         /// LOAN TAB
         ///
 
-        public void ShowAllCurrentLoans(IEnumerable<Loan> loans)
+        public void ShowAllLoans(IEnumerable<Loan> currentLoans, IEnumerable<Loan> previousLoans, IEnumerable<Loan> overdueLoans)
         {
-            UpdateListBox(lbCurrentLoans, loans);
+            UpdateListBox(lbCurrentLoans, currentLoans);
+            UpdateListBox(lbPreviousLoans, previousLoans);
+            UpdateListBox(lbOverdueLoans, overdueLoans);
         }
+
 
         /// <summary>
         /// Method to show members in the combobox for adding new loans
@@ -338,16 +305,8 @@ namespace Library
         {
             Loan loan = new Loan(dtLoans.Value.Date, (BookCopy)comboBoxBookCopies.SelectedItem, (Member)comboBoxMembers.SelectedItem);
             loanService.Add(loan);
-            ShowAllCurrentLoans(loanService.GetAllCurrentLoans());
-        }
-
-        /// <summary>
-        /// Method to show all previous loans
-        /// </summary>
-        /// <param name="loans">A list of loans</param>
-        public void ShowAllReturnedLoans(IEnumerable<Loan> loans)
-        {
-            UpdateListBox(lbPreviousLoans, loans);
+            ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
+           
         }
 
         private void lbPreviousLoans_SelectedIndexChanged(object sender, EventArgs e)
@@ -365,9 +324,8 @@ namespace Library
             //try
             //{
                 var selectedLoan = (Loan)lbCurrentLoans.SelectedItem;
-                selectedLoan.TimeOfReturn = DateTime.Today;
-                ShowAllReturnedLoans(loanService.GetAllPreviousLoans());
-                ShowAllCurrentLoans(loanService.GetAllCurrentLoans());
+                selectedLoan.TimeOfReturn = DateTime.Today;               
+                ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
             //}
             //catch
             //{
