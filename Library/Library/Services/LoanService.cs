@@ -104,6 +104,8 @@ namespace Library.Services
             return loanRepository.All().Where(l => l.TimeOfReturn == null && (l.DueDate - DateTime.Now).TotalDays < 0 && l.Member == member);
         }
 
+
+
         /// <summary>
         /// The Edit method makes sure that the given Book object is saved to the database and raises the Updated() event.
         /// </summary>
