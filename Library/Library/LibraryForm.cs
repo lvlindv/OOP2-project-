@@ -123,9 +123,6 @@ namespace Library
             UpdateListBox(lbBooks, bookService.GetAllBooksByAuthor((Author)comboBoxBooksByAuthor.SelectedItem));
         }
 
-        private void LibraryForm_Load(object sender, EventArgs e)
-        {
-        }
 
         /// <summary>
         /// "Show all books"-button
@@ -188,9 +185,6 @@ namespace Library
         // AUTHORS TAB
         //
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-        }
 
         public void AuthorTabShowAllAuthors(IEnumerable<Author> authors)
         {
@@ -221,22 +215,12 @@ namespace Library
         // MEMBERS TAB
         //
 
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-        }
 
         public void MemberTabShowAllMembers(IEnumerable<Member> members)
         {
             UpdateListBox(lbMembers, members);
         }
 
-        private void textBoxMemberPersonalID_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBoxMemberName_TextChanged(object sender, EventArgs e)
-        {
-        }
 
         private void BtnAddNewMember_Click(object sender, EventArgs e)
         {
@@ -260,15 +244,6 @@ namespace Library
 
         }
 
-        private void lbMembers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-
-
-        private void comboBoxBooksByAuthor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
 
         ///
         /// LOAN TAB
@@ -309,10 +284,7 @@ namespace Library
            
         }
 
-        private void lbPreviousLoans_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         /// <summary>
         /// "Return loan"-button
@@ -360,9 +332,6 @@ namespace Library
 
 
 
-        private void comboBoxLoansByMember_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }

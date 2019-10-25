@@ -251,7 +251,6 @@
             this.comboBoxBooksByAuthor.Name = "comboBoxBooksByAuthor";
             this.comboBoxBooksByAuthor.Size = new System.Drawing.Size(121, 21);
             this.comboBoxBooksByAuthor.TabIndex = 17;
-            this.comboBoxBooksByAuthor.SelectedIndexChanged += new System.EventHandler(this.comboBoxBooksByAuthor_SelectedIndexChanged);
             // 
             // groupBoxBookInfo
             // 
@@ -360,7 +359,7 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Authors";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+
             // 
             // labelAuthorName
             // 
@@ -400,7 +399,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Members";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+
             // 
             // lbMembers
             // 
@@ -409,7 +408,7 @@
             this.lbMembers.Name = "lbMembers";
             this.lbMembers.Size = new System.Drawing.Size(258, 290);
             this.lbMembers.TabIndex = 6;
-            this.lbMembers.SelectedIndexChanged += new System.EventHandler(this.lbMembers_SelectedIndexChanged);
+
             // 
             // groupBoxAddNewMember
             // 
@@ -431,7 +430,7 @@
             this.textBoxMemberPersonalID.Name = "textBoxMemberPersonalID";
             this.textBoxMemberPersonalID.Size = new System.Drawing.Size(100, 20);
             this.textBoxMemberPersonalID.TabIndex = 12;
-            this.textBoxMemberPersonalID.TextChanged += new System.EventHandler(this.textBoxMemberPersonalID_TextChanged);
+
             // 
             // textBoxMemberName
             // 
@@ -439,7 +438,7 @@
             this.textBoxMemberName.Name = "textBoxMemberName";
             this.textBoxMemberName.Size = new System.Drawing.Size(100, 20);
             this.textBoxMemberName.TabIndex = 11;
-            this.textBoxMemberName.TextChanged += new System.EventHandler(this.textBoxMemberName_TextChanged);
+
             // 
             // labelName
             // 
@@ -506,7 +505,7 @@
             this.comboBoxLoansByMember.Name = "comboBoxLoansByMember";
             this.comboBoxLoansByMember.Size = new System.Drawing.Size(206, 21);
             this.comboBoxLoansByMember.TabIndex = 7;
-            this.comboBoxLoansByMember.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoansByMember_SelectedIndexChanged);
+
             // 
             // labelReturned
             // 
@@ -560,7 +559,7 @@
             this.lbPreviousLoans.Name = "lbPreviousLoans";
             this.lbPreviousLoans.Size = new System.Drawing.Size(670, 82);
             this.lbPreviousLoans.TabIndex = 2;
-            this.lbPreviousLoans.SelectedIndexChanged += new System.EventHandler(this.lbPreviousLoans_SelectedIndexChanged);
+  
             // 
             // lbCurrentLoans
             // 
@@ -624,7 +623,7 @@
             this.Controls.Add(this.tabControlLibrary);
             this.Name = "LibraryForm";
             this.Text = "Library";
-            this.Load += new System.EventHandler(this.LibraryForm_Load);
+
             this.tabControlLibrary.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
