@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Library.Repositories
 {
-    public class BookCopyRepository
+    public class BookCopyRepository : IRepository<BookCopy, int>
     {
         /// <summary>
         /// Instantiates a library context
@@ -42,12 +42,21 @@ namespace Library.Repositories
             context.SaveChanges();
         }
 
-        // fråga
         public void Edit(BookCopy c)
         {
             // Because the object c was retrieved through the same context, we don't need to do a lookup. 
             // We can just tell the context to save any changes that happened.
             context.SaveChanges();
+        }
+
+        public BookCopy Find(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(BookCopy item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

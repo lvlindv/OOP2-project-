@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Library.Repositories
 {
-    public class MemberRepository
+    public class MemberRepository : IRepository<Member, int>
     {
         /// <summary>
         /// Instantiates library context
@@ -42,5 +42,19 @@ namespace Library.Repositories
             context.SaveChanges();
         }
 
+        public void Remove(Member item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Member Find(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Edit(Member item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

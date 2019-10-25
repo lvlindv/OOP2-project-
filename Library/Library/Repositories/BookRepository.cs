@@ -6,7 +6,7 @@ using Library.Models;
 
 namespace Library.Repositories
 {
-    public class BookRepository
+    public class BookRepository : IRepository<Book, int>
     {
         /// <summary>
         /// Instantiates a library context
@@ -49,6 +49,16 @@ namespace Library.Repositories
             // Then why do we still pass the Book object all the way to the repository? Because the service
             // layer doesn't know we use EF. If in the future we decide to switch EF to something else, 
             // we won't have to change the service layer.
+        }
+
+        public void Remove(Book item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Book Find(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
