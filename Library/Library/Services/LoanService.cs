@@ -74,7 +74,34 @@ namespace Library.Services
         /// <returns>A list of loans by a specific member</returns>
         public IEnumerable<Loan> GetAllLoansByMember(Member member)
         {
-            return loanRepository.All().Where(m => m.Member == member);
+            return loanRepository.All().Where(l => l.Member == member);
+        }
+
+        /// <summary>
+        /// Method to get all current loans by a specific member
+        /// </summary>
+        /// <returns>A list of loans</returns>
+        public IEnumerable<Loan> GetAllCurrentLoansByMember(Member member)
+        {
+            return loanRepository.All().Where(l => l.TimeOfReturn == null && l.Member == member);
+        }
+
+        /// <summary>
+        /// Method to get all previous/returned loans by member
+        /// </summary>
+        /// <returns>A list of loans</returns>
+        public IEnumerable<Loan> GetAllPreviousLoansByMember(Member member)
+        {
+            return loanRepository.All().Where(l => l.TimeOfReturn != null && l.Member == member);
+        }
+
+        /// <summary>
+        /// Method to get all overdue loans
+        /// </summary>
+        /// <returns>A list of loans</returns>
+        public IEnumerable<Loan> GetAllOverdueLoansByMember(Member member)
+        {
+            return loanRepository.All().Where(l => l.TimeOfReturn == null && l.DueDate > DateTime.Today && l.Member == member);
         }
 
         /// <summary>
