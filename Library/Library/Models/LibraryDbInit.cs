@@ -40,7 +40,7 @@ namespace Library.Models {
 
             Member viggoLundin = new Member()
             {
-                PersonalId = 1996,
+                PersonalId = "1996",
                 Name = "Viggo Lundin",
                 DateOfMembership = new DateTime(2019, 10, 23)
             };

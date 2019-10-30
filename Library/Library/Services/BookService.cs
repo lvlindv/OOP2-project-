@@ -36,10 +36,18 @@ namespace Library.Services
             return bookRepository.All();
         }
 
-        //public IEnumerable<Book> GetAvailableBooks()
-        //{
-        //    return All().Where(book => book.BookCopies.)
-        //}
+        /// <summary>
+        /// Method to get all available books
+        /// </summary>
+        /// <param name="loanList">A list of loans</param>
+        /// <param name="copyList">A list of book copies</param>
+        /// <returns>A list of books</returns>
+        public IEnumerable<Book> GetAvailableBooks(IEnumerable<Loan> loanList, IEnumerable<BookCopy> copyList)
+        {
+            IEnumerable<BookCopy> unavailableCopies = loanList.Where(l => l.TimeOfReturn == null).Select(l => l.BookCopy);
+
+            return copyList.Where(x => !unavailableCopies.Any(y => y.Id == x.Id)).Select(copy => copy.Book).Distinct();
+        }
 
 
         /// <summary>
