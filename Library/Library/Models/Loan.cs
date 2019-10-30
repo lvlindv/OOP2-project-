@@ -16,7 +16,7 @@ namespace Library.Models
         /// Properties
         /// </summary>
         [Key]
-        public int LoanId { get; set; } 
+        public int Id { get; set; } 
         public DateTime TimeOfLoan { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime? TimeOfReturn { get; set; }
@@ -51,7 +51,7 @@ namespace Library.Models
         /// <returns>Loan object</returns>
         public override string ToString()
         {
-            return String.Format("{0} - {1} {2} - Title: {3} - Due: {4}", this.TimeOfLoan.ToString("yyyy-MM-dd"), this.Member.MemberId, this.Member.Name, this.BookCopy.Book.Title, this.DueDate.ToString("yyyy-MM-dd"));
+            return String.Format("{0} - {1} {2} - Title: {3} - Due: {4}", this.TimeOfLoan.ToString("yyyy-MM-dd"), this.Member.Id, this.Member.Name, this.BookCopy.Book.Title, this.DueDate.ToString("yyyy-MM-dd"));
         }
     }
 }

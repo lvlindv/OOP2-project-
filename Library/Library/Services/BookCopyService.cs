@@ -23,27 +23,12 @@ namespace Library.Services
             this.bookCopyRepository = rFactory.CreateBookCopyRepository();
         }
 
-        //Metod där Due date
-        //Join
 
-        //Available books
-        //Hämta alla aktiva lån --> ett lån med ett due date (due date != null) och ingen time of return (time of return == null)
-        //Hämta alla bookcopies som inte är kopplat till ett aktivt lån
-        //--> Hämta alla böcker kopplat till ovan lista av bookcopies/Alla bookcopy-Titlar?
-
-
-
-        public IEnumerable<BookCopy> GetAvailableBookCopies(IEnumerable<BookCopy> copyList, IEnumerable<Loan> allLoans)
+        public IEnumerable<BookCopy> GetAvailableBookCopies(IEnumerable<Loan> loanList, IEnumerable<BookCopy> copyList)
         {
-            //var activeLoans = loanList.Where(l => l.DueDate != null && l.TimeOfReturn == null); //Alla aktiva lån
+            IEnumerable<BookCopy> unavailableCopies = loanList.Where(l => l.TimeOfReturn == null).Select(l => l.BookCopy);
 
-            var result1 = copyList.Where(copy => !allLoans.Any(loan => loan.BookCopy.CopyId == copy.CopyId)); //Alla böcker som inte är kopplade till något lån (aldrig har blivit lånade)
-
-            var result2 = copyList.Where(copy => allLoans.Any(loan => loan.BookCopy.CopyId == copy.CopyId && loan.TimeOfReturn != null)); //Alla böcker som har blivit utlånade MEN returnerats
-
-            var availableCopies = result1.Concat(result2).ToList();
-
-            return availableCopies;
+            return copyList.Where(x => !unavailableCopies.Any(y => y.Id == x.Id)).Select(copy => copy).Distinct();
         }
 
         /// <summary>

@@ -15,7 +15,7 @@ namespace Library.Models {
         /// Properties
         /// </summary>        
         [Key]
-        public int BookId { get; set; } 
+        public int Id { get; set; } 
         public string ISBN { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

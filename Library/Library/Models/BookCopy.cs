@@ -16,7 +16,7 @@ namespace Library.Models
         /// Properties
         /// </summary>
         [Key]
-        public int CopyId { get; set; }
+        public int Id { get; set; }
         public virtual Book Book { get; set; }
         public int Condition { get; set; } //Can only be 1-10, implement rule
 
@@ -45,7 +45,7 @@ namespace Library.Models
         /// </summary>
         public override string ToString()
         {
-            return String.Format("[{0}] -- {1} by {2} -- Condition: {3}", this.CopyId, this.Book.Title, this.Book.Author, this.Condition);
+            return String.Format("[{0}] -- {1} by {2} -- Condition: {3}", this.Id, this.Book.Title, this.Book.Author, this.Condition);
         }
     }
 }

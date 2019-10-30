@@ -50,7 +50,7 @@ namespace Library.Services
         public void Add(Loan loan)
         {
             loanRepository.Add(loan);
-            var OnUpdated = new EventArgs
+            //var OnUpdated = new EventArgs
             //OnUpdated(new EventArg));
         }
 
