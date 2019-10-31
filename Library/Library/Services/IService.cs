@@ -9,7 +9,8 @@ namespace Library.Services {
     /// Allows services to notify when their
     /// underlying data model changes.
     /// </summary>
-    interface IService {
+    interface IService
+    {
         event EventHandler Updated;
     }
 }

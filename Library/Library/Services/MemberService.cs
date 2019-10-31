@@ -18,6 +18,18 @@ namespace Library.Services
         public event EventHandler Updated;
 
         /// <summary>
+        /// Method to check subscribers and raise Updated event
+        /// </summary>
+        /// <param name="e">An eventargs</param>
+        protected virtual void OnUpdated(EventArgs e)
+        {
+            if (Updated != null)
+            {
+                Updated(this, e);
+            }
+        }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="rFactory">A repository factory, so the service can create its own repository.</param>
@@ -36,13 +48,13 @@ namespace Library.Services
         }
 
         /// <summary>
-        /// Method that adds a new member
+        /// Method that adds a new member and call OnUpdated to raise Updated event
         /// </summary>
         /// <param name="member">A member object</param>
         public void Add(Member member)
         {
             memberRepository.Add(member);
-            // TODO: Raise the Updated event.
+            OnUpdated(new EventArgs());
         }
     }
 }

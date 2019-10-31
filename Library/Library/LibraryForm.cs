@@ -40,25 +40,74 @@ namespace Library
             this.memberService = new MemberService(repFactory);
             this.loanService = new LoanService(repFactory);
 
-            //Can we do this another way?
-            ShowAllBooks(bookService.All());
-            AuthorTabShowAllAuthors(authorService.All());
-            BookTabShowAllAuthors(authorService.All());
-            MemberTabShowAllMembers(memberService.All());
-            BookTabBooksByAuthor(authorService.All());
-            ShowAllBooksInComboBox(bookService.All());
-            LoanTabShowMembers(memberService.All());
-            LoanTabShowCopies(bookCopyService.GetAvailableBookCopies(loanService.All(), bookCopyService.All()));
-            ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
-            LoanTabShowLoansByMember(memberService.All());
+            // Subscribers
+            bookService.Updated += books_Updated; 
+            authorService.Updated += authors_Updated;
+            memberService.Updated += members_Updated;
+            bookCopyService.Updated += copies_Updated;
+            loanService.Updated += loans_Updated;
 
-            TEST(loanService.All(), bookCopyService.All());
+            // Content
+            UpdateListBox(lbBooks, bookService.All());
+            UpdateComboBox(comboBoxBook, bookService.All());
 
+            UpdateListBox(lbAuthors, authorService.All());
+            UpdateComboBox(comboBoxAuthor, authorService.All());
+            UpdateComboBox(comboBoxBooksByAuthor, authorService.All());
+
+            UpdateListBox(lbMembers, memberService.All());
+            UpdateComboBox(comboBoxLoansByMember, memberService.All());
+            UpdateComboBox(comboBoxMembers, memberService.All());
+
+            UpdateListBox(lbAvailableBooks, bookService.GetAvailableBooks(loanService.All(), bookCopyService.All()));
+            UpdateComboBox(comboBoxBookCopies, bookCopyService.GetAvailableBookCopies(loanService.All(), bookCopyService.All()));
+
+            UpdateListBox(lbCurrentLoans, loanService.GetAllCurrentLoans());
+            UpdateListBox(lbPreviousLoans, loanService.GetAllPreviousLoans());
+            UpdateListBox(lbOverdueLoans, loanService.GetAllOverdueLoans());
         }
 
         ///
         /// METHODS TO UPDATE CONTENT
         /// 
+
+        private void books_Updated(object sender, EventArgs e)
+        {
+            UpdateListBox(lbBooks, bookService.All());
+            UpdateComboBox(comboBoxBook, bookService.All());
+        }
+
+        private void authors_Updated(object sender, EventArgs e)
+        {
+            UpdateListBox(lbAuthors, authorService.All());
+            UpdateComboBox(comboBoxAuthor, authorService.All());
+            UpdateComboBox(comboBoxBooksByAuthor, authorService.All());
+        }
+
+        private void members_Updated(object sender, EventArgs e)
+        {
+            UpdateListBox(lbMembers, memberService.All());
+            UpdateComboBox(comboBoxLoansByMember, memberService.All());
+            UpdateComboBox(comboBoxMembers, memberService.All());
+        }
+
+        private void copies_Updated(object sender, EventArgs e)
+        {
+
+            UpdateListBox(lbBooks, bookService.All());
+            UpdateListBox(lbAvailableBooks, bookService.GetAvailableBooks(loanService.All(), bookCopyService.All()));
+            UpdateComboBox(comboBoxBookCopies, bookCopyService.GetAvailableBookCopies(loanService.All(), bookCopyService.All()));
+        }
+
+        private void loans_Updated(object sender, EventArgs e)
+        {
+            UpdateListBox(lbCurrentLoans, loanService.GetAllCurrentLoans());
+            UpdateListBox(lbPreviousLoans, loanService.GetAllPreviousLoans());
+            UpdateListBox(lbOverdueLoans, loanService.GetAllOverdueLoans());
+            UpdateListBox(lbAvailableBooks, bookService.GetAvailableBooks(loanService.All(), bookCopyService.All()));
+            UpdateComboBox(comboBoxBookCopies, bookCopyService.GetAvailableBookCopies(loanService.All(), bookCopyService.All()));
+        }
+
 
         /// <summary>
         /// Updates content of a given listbox
@@ -89,41 +138,10 @@ namespace Library
         }
 
 
-
-
-
-
-
         //----------------------------------------------------------------------------------------------------------------------------
         // BOOK TAB
         //----------------------------------------------------------------------------------------------------------------------------
 
-        /// <summary>
-        /// Method to show all authors to add a new book
-        /// </summary>
-        /// <param name="authors">A list of authors</param>
-        public void BookTabShowAllAuthors(IEnumerable<Author> authors)
-        {
-            UpdateComboBox(comboBoxAuthor, authors);
-        }
-
-        /// <summary>
-        /// Method to show books in the listbox in the books tab
-        /// </summary>
-        /// <param name="books">A list of books</param>
-        private void ShowAllBooks(IEnumerable<Book> books)
-        {
-            UpdateListBox(lbBooks, books);
-        }
-
-        /// <summary>
-        /// Method to show authors that the user can choose from to filter books
-        /// </summary>
-        /// <param name="authors">A list of authors</param>
-        public void BookTabBooksByAuthor(IEnumerable<Author> authors)
-        {
-            UpdateComboBox(comboBoxBooksByAuthor, authors);
-        }
 
         /// <summary>
         /// Button for showing books by selected author 
@@ -153,8 +171,6 @@ namespace Library
                 textBoxISBN.Clear();
                 textBoxTitle.Clear();
                 textBoxDescription.Clear();
-                ShowAllBooks(bookService.All());
-                ShowAllBooksInComboBox(bookService.All());
             }
         }
 
@@ -163,7 +179,7 @@ namespace Library
         /// </summary>
         private void btnShowAllBooks_Click_1(object sender, EventArgs e)
         {
-            ShowAllBooks(bookService.All());
+            UpdateListBox(lbBooks, bookService.All());
         }
 
 
@@ -171,16 +187,6 @@ namespace Library
         ///-----------------
         /// ADD NEW COPIES
         /// ----------------
-
-
-        /// <summary>
-        /// Method to show books so that the user can pick one to add a copy of
-        /// </summary>
-        /// <param name="books">A list of books</param>
-        public void ShowAllBooksInComboBox(IEnumerable<Book> books)
-        {
-            UpdateComboBox(comboBoxBook, books);
-        }
 
         /// <summary>
         /// "Add new copy"-button
@@ -193,9 +199,7 @@ namespace Library
                 {
                     BookCopy copy = new BookCopy((Book)comboBoxBook.SelectedItem, Convert.ToInt32(numericUpDownCopies.Value));
                     bookCopyService.Add(copy);
-                    ShowAllBooks(bookService.All());
-                    LoanTabShowCopies(bookCopyService.GetAvailableBookCopies(loanService.All(), bookCopyService.All()));
-                    TEST(loanService.All(), bookCopyService.All());
+                    UpdateListBox(lbBooks, bookService.All());
                 }
                 catch (ArgumentNullException)
                 {
@@ -214,16 +218,6 @@ namespace Library
         //----------------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
-        /// Updates the listbox with all authors
-        /// </summary>
-        /// <param name="authors">A list of authors</param>
-        public void AuthorTabShowAllAuthors(IEnumerable<Author> authors)
-        {
-            UpdateListBox(lbAuthors, authors);
-        }
-
-
-        /// <summary>
         /// "Add new author"-knapp
         /// </summary>
          private void btnAddNewAuthor_Click(object sender, EventArgs e)
@@ -233,9 +227,9 @@ namespace Library
             {
                 MessageBox.Show("You need to enter a name of the author.", "Error!");
             }
-            else if (!textBoxAuthorName.Text.All(char.IsLetter))
+            else if (textBoxMemberName.Text.Any(char.IsNumber) || textBoxMemberName.Text.Any(char.IsSymbol) || textBoxMemberName.Text.Any(char.IsPunctuation))
             {
-                MessageBox.Show("Name can only contain letters.", "Error!");
+                MessageBox.Show("Name can only contain alphabetical letters.", "Error!");
             }
             else
             {
@@ -244,9 +238,6 @@ namespace Library
 
                 MessageBox.Show("You have now added the author: " + textBoxAuthorName.Text);
                 textBoxAuthorName.Clear();
-                AuthorTabShowAllAuthors(authorService.All());
-                BookTabShowAllAuthors(authorService.All());
-                BookTabBooksByAuthor(authorService.All());
             }
         }
 
@@ -254,19 +245,7 @@ namespace Library
         //----------------------------------------------------------------------------------------------------------------------------
         // MEMBERS TAB
         //----------------------------------------------------------------------------------------------------------------------------
-
-
-        /// <summary>
-        /// Updates listbox with all members
-        /// </summary>
-        /// <param name="members">A list of members</param>
-        public void MemberTabShowAllMembers(IEnumerable<Member> members)
-        {
-            UpdateListBox(lbMembers, members);
-
-        }
-
-        
+ 
         /// <summary>
         /// "Add new member"-button 
         /// </summary>
@@ -276,9 +255,9 @@ namespace Library
             {
                 MessageBox.Show("You need to fill in all member details.", "Error!");
             }
-            else if(!textBoxMemberName.Text.All(char.IsLetter))
+            else if(textBoxMemberName.Text.Any(char.IsNumber) || textBoxMemberName.Text.Any(char.IsSymbol) || textBoxMemberName.Text.Any(char.IsPunctuation))
             {
-                MessageBox.Show("Name can not contain numbers.", "Error!");
+                MessageBox.Show("Name can only contain alphabetical letters.", "Error!");
             }
             else
             {
@@ -289,11 +268,7 @@ namespace Library
                 MessageBox.Show("You have now added the member: " + textBoxMemberName.Text);
                 textBoxMemberName.Clear();
                 textBoxMemberPersonalID.Clear();
-                MemberTabShowAllMembers(memberService.All());
-                LoanTabShowMembers(memberService.All());
-                LoanTabShowLoansByMember(memberService.All());
             }
-
         }
       
 
@@ -301,38 +276,7 @@ namespace Library
         // LOAN TAB
         //----------------------------------------------------------------------------------------------------------------------------
 
-        /// <summary>
-        /// Updates all loan listboxes
-        /// </summary>
-        /// <param name="currentLoans">A list of loans</param>
-        /// <param name="previousLoans">A list of loans</param>
-        /// <param name="overdueLoans">A list of loans</param>
-        public void ShowAllLoans(IEnumerable<Loan> currentLoans, IEnumerable<Loan> previousLoans, IEnumerable<Loan> overdueLoans)
-        {
-            UpdateListBox(lbCurrentLoans, currentLoans);
-            UpdateListBox(lbPreviousLoans, previousLoans);
-            UpdateListBox(lbOverdueLoans, overdueLoans);
-        }
-
-
-        /// <summary>
-        /// Method to show members in the combobox for adding new loans
-        /// </summary>
-        /// <param name="members">A list of members</param>
-        public void LoanTabShowMembers(IEnumerable<Member> members)
-        {
-            UpdateComboBox(comboBoxMembers, members);
-        }
-
-        /// <summary>
-        /// Method to show book copies in the combobox for adding new loans
-        /// </summary>
-        /// <param name="copies">Takes a list of book copies</param>
-        public void LoanTabShowCopies(IEnumerable<BookCopy> copies)
-        {
-            UpdateComboBox(comboBoxBookCopies, copies);
-        }
-        
+      
         /// <summary>
         /// "Add new loan"-button
         /// </summary>
@@ -348,9 +292,9 @@ namespace Library
                 {
                     Loan loan = new Loan(dtLoans.Value.Date, (BookCopy)comboBoxBookCopies.SelectedItem, (Member)comboBoxMembers.SelectedItem);
                     loanService.Add(loan);
-                    ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
-                    TEST(loanService.All(), bookCopyService.All());
-                    LoanTabShowCopies(bookCopyService.GetAvailableBookCopies(loanService.All(), bookCopyService.All()));
+
+                    comboBoxBookCopies.SelectedIndex = -1;
+                    comboBoxMembers.SelectedItem = null;
                 }
                 catch (NullReferenceException)
                 {
@@ -379,9 +323,11 @@ namespace Library
                         MessageBox.Show("Total fine for late return is: " + fine + " kr.", "This member has a late fine");
                     }
 
-                    ShowAllLoans(loanService.GetAllCurrentLoans(), loanService.GetAllPreviousLoans(), loanService.GetAllOverdueLoans());
-                    TEST(loanService.All(), bookCopyService.All());
-                    LoanTabShowCopies(bookCopyService.GetAvailableBookCopies(loanService.All(), bookCopyService.All()));
+                    UpdateListBox(lbCurrentLoans, loanService.GetAllCurrentLoans());
+                    UpdateListBox(lbPreviousLoans, loanService.GetAllPreviousLoans());
+                    UpdateListBox(lbOverdueLoans, loanService.GetAllOverdueLoans());
+                    UpdateListBox(lbAvailableBooks, bookService.GetAvailableBooks(loanService.All(), bookCopyService.All()));
+                    UpdateComboBox(comboBoxBookCopies, bookCopyService.GetAvailableBookCopies(loanService.All(), bookCopyService.All()));
                 }
                 catch (NullReferenceException)
                 {
@@ -393,16 +339,6 @@ namespace Library
                 MessageBox.Show("There are no current loans.");
             }
         }
-
-        /// <summary>
-        /// Method to show members in the combobox for adding new loans
-        /// </summary>
-        /// <param name="members">A list of members</param>
-        public void LoanTabShowLoansByMember(IEnumerable<Member> members)
-        {
-            UpdateComboBox(comboBoxLoansByMember, members);
-        }
-
         /// <summary>
         /// Button to filter loans by entering a member
         /// </summary>
@@ -413,14 +349,11 @@ namespace Library
             UpdateListBox(lbPreviousLoans, loanService.GetAllPreviousLoansByMember((Member)comboBoxLoansByMember.SelectedItem));
         }
 
-        /// <summary>
-        /// Updates listbox of available books
-        /// </summary>
-        /// <param name="loanList">A list of loans</param>
-        /// <param name="copyList">A list of copies</param>
-        public void TEST(IEnumerable<Loan> loanList, IEnumerable<BookCopy> copyList)
+        private void btnShowAllLoans_Click(object sender, EventArgs e)
         {
-            UpdateListBox(lbAvailableBooks, bookService.GetAvailableBooks(loanList, copyList));
+            UpdateListBox(lbCurrentLoans, loanService.GetAllCurrentLoans());
+            UpdateListBox(lbPreviousLoans, loanService.GetAllPreviousLoans());
+            UpdateListBox(lbOverdueLoans, loanService.GetAllOverdueLoans());
         }
     }
 }

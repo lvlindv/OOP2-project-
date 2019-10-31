@@ -17,14 +17,15 @@ namespace Library.Services
 
         public event EventHandler Updated;
 
-        //Method to check subscribers and raise Updated event
+        /// <summary>
+        /// Method to check subscribers and raise Updated event
+        /// </summary>
+        /// <param name="e">An eventargs</param>
         protected virtual void OnUpdated(EventArgs e)
         {
-            EventHandler checkSub = Updated;
-
-            if (checkSub != null)
+            if (Updated != null)
             {
-                checkSub(this, e);
+                Updated(this, e);
             }
         }
 
@@ -50,8 +51,7 @@ namespace Library.Services
         public void Add(Loan loan)
         {
             loanRepository.Add(loan);
-            //var OnUpdated = new EventArgs
-            //OnUpdated(new EventArg));
+            OnUpdated(new EventArgs());
         }
 
         /// <summary>

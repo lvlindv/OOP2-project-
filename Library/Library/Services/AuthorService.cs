@@ -17,6 +17,19 @@ namespace Library.Services
 
         public event EventHandler Updated;
 
+        /// <summary>
+        /// Method to check subscribers and raise Updated event
+        /// </summary>
+        /// <param name="e">An eventargs</param>
+        protected virtual void OnUpdated(EventArgs e)
+        {
+
+            if (Updated != null)
+            {
+                Updated(this, e);
+            }
+        }
+
         /// <param name="rFactory">A repository factory, so the service can create its own repository.</param>
         public AuthorService(RepositoryFactory rFactory)
         {
@@ -33,13 +46,13 @@ namespace Library.Services
         }
 
         /// <summary>
-        /// Method to add authors to db 
+        /// Method to add authors to db and call OnUpdated to raise Updated event
         /// </summary>
         /// <param name="author">Takes an author object</param>
         public void Add(Author author)
         {
             authorRepository.Add(author);
-            // TODO: Raise the Updated event.
+            OnUpdated(new EventArgs());        
         }
 
         /// <summary>

@@ -17,13 +17,30 @@ namespace Library.Services
 
         public event EventHandler Updated;
 
+        /// <summary>
+        /// Method to check subscribers and raise Updated event
+        /// </summary>
+        /// <param name="e">An eventargs</param>
+        protected virtual void OnUpdated(EventArgs e)
+        {
+            if (Updated != null)
+            {
+                Updated(this, e);
+            }
+        }
+
         /// <param name="rFactory">A repository factory, so the service can create its own repository.</param>
         public BookCopyService(RepositoryFactory rFactory)
         {
             this.bookCopyRepository = rFactory.CreateBookCopyRepository();
         }
 
-
+        /// <summary>
+        /// Method to get all available copies of a book
+        /// </summary>
+        /// <param name="loanList">A list of loans</param>
+        /// <param name="copyList">A list of book copies</param>
+        /// <returns></returns>
         public IEnumerable<BookCopy> GetAvailableBookCopies(IEnumerable<Loan> loanList, IEnumerable<BookCopy> copyList)
         {
             IEnumerable<BookCopy> unavailableCopies = loanList.Where(l => l.TimeOfReturn == null).Select(l => l.BookCopy);
@@ -41,13 +58,13 @@ namespace Library.Services
         }
 
         /// <summary>
-        /// A method to add a book copy to db
+        /// A method to add a book copy to db and call OnUpdated to raise Updated event
         /// </summary>
         /// <param name="copy">Takes a book copy object</param>
         public void Add(BookCopy copy)
         {
             bookCopyRepository.Add(copy);
-            // TODO: Raise the Updated event.
+            OnUpdated(new EventArgs());    
         }
 
         /// <summary>
